@@ -22,7 +22,7 @@ INSERT INTO machines VALUES
 ('Guns N'' Roses','Jersey Jack',2002,'Modern','Eric Meunier',4,3),
 ('Harlem Globetrotters On Tour','Bally',1978,'Solid State','designer_placeholder',4,3),
 ('High Speed','Williams',1986,'Solid State','Steve Ritchie',4,3),
-('Hokus Pokus','Bally',1975,'EM','designer_placeholder',0,0),
+('Hokus Pokus','Bally',1975,'EM','designer_placeholder',2,5),
 ('Hoops','Gottlieb',1991,'Solid State','designer_placeholder',4,3),
 ('The Incredible Hulk','Gottlieb',1977,'Solid State','designer_placeholder',4,3),
 ('Indianapolis 500','Bally',1995,'DMD','Dennis Nordman',4,3),
