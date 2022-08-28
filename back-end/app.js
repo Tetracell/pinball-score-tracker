@@ -8,16 +8,16 @@ const app = express();
 // MIDDLEWARE
 app.use(cors());
 app.use(express.json()); // Parse incoming JSON
-const playerController = require("./controllers/playerController");
-const tableController = require("./controllers/tablesController");
 
 // ROUTES
 app.get("/", (req, res) => {
-  res.send("Hello, world!");
+  res.send("Welcome to the Sanctum Scores Database");
 });
 
+const tablesController = require("./controllers/tablesController");
+app.use("/tables", tablesController);
+const playerController = require("./controllers/playerController");
 app.use("/player", playerController);
-app.use("/tables", tableController);
 
 //404
 app.get("*", (req, res) => {

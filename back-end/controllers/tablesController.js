@@ -20,18 +20,18 @@ tables.get("/", async (req, res) => {
   } else {
     res.status(500).json({
       success: false,
-      error: "Server error - no players found",
+      error: "Server error - no machines found",
     });
   }
 });
 //---Routes---
 
 //Single table
-tables.get("/:id", async (req, res) => {
+tables.get("/:machineid", async (req, res) => {
   console.log("Retreiving table");
-  const { id } = req.params;
-  const singleTable = await getTable(id);
-  if (singleTable.name !== "QueryResultError") {
+  const { machineid } = req.params;
+  const singleTable = await getTable(machineid);
+  if (singleTable.machineid) {
     res.json({ payload: singleTable, success: true });
   } else {
     res.status(404).json({
@@ -79,3 +79,5 @@ tables.delete("/:id", async (req, res) => {
     res.status(400).json({ error: error, success: false });
   }
 });
+
+module.exports = tables;

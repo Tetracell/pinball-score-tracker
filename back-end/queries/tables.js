@@ -1,3 +1,4 @@
+const { all } = require("../app.js");
 const db = require("../db/dbconfig.js");
 
 // name, manufacturer, prod_year, type, designer, players, balls -- column layout
@@ -6,6 +7,7 @@ const db = require("../db/dbconfig.js");
 const getAllTables = async () => {
   try {
     const allMachineas = await db.any("SELECT * FROM machines");
+    return allMachineas;
   } catch (error) {
     return error;
   }
@@ -15,7 +17,7 @@ const getAllTables = async () => {
 const getTable = async (id) => {
   try {
     const singleMachine = await db.one(
-      "SELECT * FROM machines WHERE id=$1",
+      "SELECT * FROM machines WHERE machineid=$1",
       id
     );
     return singleMachine;
@@ -59,4 +61,12 @@ const deleteTable = async (id) => {
   } catch (error) {
     return error;
   }
+};
+
+module.exports = {
+  getAllTables,
+  getTable,
+  createTable,
+  editTable,
+  deleteTable,
 };

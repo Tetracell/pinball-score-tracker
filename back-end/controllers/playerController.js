@@ -81,3 +81,5 @@ player.delete("/:id", async (req, res) => {
     res.status(400).json({ error: error, success: false });
   }
 });
+
+module.exports = player;

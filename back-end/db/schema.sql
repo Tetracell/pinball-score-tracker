@@ -30,5 +30,5 @@ CREATE TABLE scores (
     date TEXT,
     witness TEXT,
     player INT references players(playerid),
-    machine INT references machines(machineid),
+    machine INT references machines(machineid)
 );
