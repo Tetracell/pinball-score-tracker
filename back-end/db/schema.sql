@@ -1,12 +1,12 @@
-DROP DATABASE IF EXISTS pbTracker;
-CREATE DATABASE pbTracker;
+DROP DATABASE IF EXISTS pbtracker;
+CREATE DATABASE pbtracker;
 
-\c pbTracker;
+\c pbtracker;
 
 DROP TABLE IF EXISTS machines;
 
 CREATE TABLE IF NOT EXISTS machines (
-id SERIAL PRIMARY KEY,
+machineid SERIAL PRIMARY KEY,
 name TEXT,
 manufacturer TEXT,
 prod_year INT,
@@ -19,16 +19,17 @@ balls INT
 DROP TABLE IF EXISTS players;
 
 CREATE TABLE IF NOT EXISTS players (
-    id SERIAL PRIMARY KEY,
+    playerid SERIAL PRIMARY KEY,
     initials VARCHAR(3),
     name VARCHAR(255),
+    nickname VARCHAR(255)
 );
 
 DROP TABLE IF EXISTS scores;
 
 CREATE TABLE IF NOT EXISTS scores (
-    id SERIAL PRIMARY KEY,
+    scoreid SERIAL PRIMARY KEY,
     score INT,
-    tableID FOREIGN KEY,
-    playerID FOREIGN KEY,
+    player INT references players(playerid),
+    machine INT references machines(machineid)
 );

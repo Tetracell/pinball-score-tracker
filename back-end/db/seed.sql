@@ -1,6 +1,6 @@
-\c pbTracker;
+\c pbtracker;
 
-INSERT INTO machines VALUES
+INSERT INTO machines ("name", "manufacturer", "prod_year", "type", "designer", "players", "balls") VALUES
 ('Ali','Stern',1980,'Solid State','Harry Williams',4,3),
 ('Banzai Run','Williams',1988,'Solid State','Pat Lawlor',4,3),
 ('Big Game','Stern',1980,'Solid State','Harry Williams',4,3),
@@ -51,4 +51,23 @@ INSERT INTO machines VALUES
 ('Theatre of Magic','Bally',1995,'DMD','John Popadiuk',4,3),
 ('Total Nuclear Annihilation','Spooky',2017,'Modern','Scott Danesi',4,3),
 ('Transporter : The Rescue','Bally',1989,'Solid State','designer_placeholder',4,3),
-('Viper','Stern',1981,'Solid State','Joe Joos Jr.',4,3);
+('Viper','Stern',1981,'Solid State','Joe Joos Jr.',4,3) 
+RETURNING *;
+
+INSERT INTO players ("initials", "name", "nickname") VALUES
+('TTT', 'Tom LaTulipe', 'T3'),
+('WGD', 'Wes Frosolone', 'Westofferson'),
+('CP', 'Chris Point', 'Canolli Party'),
+('JDS', 'James Swain Jr.', 'Short, angry little man'),
+('MJB', 'Matthew Barnes', 'A cool dude')
+RETURNING *;
+
+INSERT INTO scores ("score", "player", "machine") VALUES
+(27000000, 1, 46),
+(500, 2, 23),
+(100000, 3, 14),
+(235920, 1, 18),
+(29492, 2, 15),
+(4828349, 1, 20),
+(49029, 3, 21)
+RETURNING *;
