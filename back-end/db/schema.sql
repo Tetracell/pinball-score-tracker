@@ -1,30 +1,34 @@
-DROP DATABASE IF EXISTS cta_dev;
-CREATE DATABASE cta_dev;
+DROP DATABASE IF EXISTS pbTracker;
+CREATE DATABASE pbTracker;
 
-\c cta_dev;
+\c pbTracker;
 
-DROP TABLE IF EXISTS test;
+DROP TABLE IF EXISTS machines;
 
-CREATE TABLE tables (
-    id SERIAL PRIMARY KEY, 
-    name VARCHAR(255),
-    manufacturer VARCHAR(255),
-    prod_year VARCHAR(255),
-    designer VARCHAR(255),
-    players INT,
-    balls INT,
+CREATE TABLE IF NOT EXISTS machines (
+id SERIAL PRIMARY KEY,
+name TEXT,
+manufacturer TEXT,
+prod_year INT,
+type TEXT,
+designer TEXT,
+players INT,
+balls INT
 );
 
-CREATE TABLE players (
+DROP TABLE IF EXISTS players;
+
+CREATE TABLE IF NOT EXISTS players (
     id SERIAL PRIMARY KEY,
     initials VARCHAR(3),
     name VARCHAR(255),
-)
+);
 
+DROP TABLE IF EXISTS scores;
 
-CREATE TABLE scores (
+CREATE TABLE IF NOT EXISTS scores (
     id SERIAL PRIMARY KEY,
     score INT,
     tableID FOREIGN KEY,
     playerID FOREIGN KEY,
-)
+);
