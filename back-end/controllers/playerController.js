@@ -1,5 +1,4 @@
 const express = require("express");
-const db = require("../db/dbConfig");
 const player = express.Router();
 
 //Queries
@@ -7,8 +6,8 @@ const {
   getAllPlayers,
   getPlayer,
   createPlayer,
-  editPlayer,
-  deletePlayer,
+  editPlayer, // Low Priority
+  deletePlayer, // Super low priority - if at all
 } = require("../queries/players");
 
 //Validations
@@ -74,7 +73,7 @@ player.delete("/:id", async (req, res) => {
   try {
     const player = await deletePlayer(id);
     if (player.name !== "QueryResultError") {
-      res.status(200).json({ paylod: player, success: true });
+      res.status(200).json({ payload: player, success: true });
     } else {
       throw error;
     }
