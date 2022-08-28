@@ -57,9 +57,9 @@ RETURNING *;
 INSERT INTO players ("initials", "name", "nickname") VALUES
 ('TTT', 'Tom LaTulipe', 'T3'),
 ('WGD', 'Wes Frosolone', 'Westofferson'),
-('CP', 'Chris Point', 'Canolli Party'),
-('JDS', 'James Swain Jr.', 'Short, angry little man'),
-('MJB', 'Matthew Boschert', 'A cool dude')
+('CP.', 'Chris Point', 'Cannolli Party'),
+('JDS', 'James Swain Jr.', 'B-Division'),
+('MJB', 'Matthew Boschert', 'Thunderlips')
 RETURNING *;
 
 INSERT INTO scores ("score", "player", "machine") VALUES
