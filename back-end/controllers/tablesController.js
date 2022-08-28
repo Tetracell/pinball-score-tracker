@@ -45,7 +45,7 @@ tables.get("/:id", async (req, res) => {
 tables.post("/", async (req, res) => {
   console.log("Creating table");
   try {
-    const newTable = createTable(req.body);
+    const newTable = await createTable(req.body);
     res.status(200).json({ payload: newTable, success: true });
   } catch (error) {
     return error;

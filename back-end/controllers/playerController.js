@@ -6,8 +6,8 @@ const {
   getAllPlayers,
   getPlayer,
   createPlayer,
-  editPlayer, // Low Priority
-  deletePlayer, // Super low priority - if at all
+  editPlayer, // Low Priority - admin only
+  deletePlayer, // Super low priority - admin only
 } = require("../queries/players");
 
 //Validations
@@ -47,7 +47,7 @@ player.get("/:id", async (req, res) => {
 player.post("/new", async (req, res) => {
   console.log("Creating player");
   try {
-    const newPlayer = createPlayer(req.body);
+    const newPlayer = await createPlayer(req.body);
     res.status(200).json({ payload: newPlayer, success: true });
   } catch (errror) {
     res.status(400).json({ error: error, success: false });
