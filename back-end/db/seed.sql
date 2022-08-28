@@ -59,7 +59,7 @@ INSERT INTO players ("initials", "name", "nickname") VALUES
 ('WGD', 'Wes Frosolone', 'Westofferson'),
 ('CP', 'Chris Point', 'Canolli Party'),
 ('JDS', 'James Swain Jr.', 'Short, angry little man'),
-('MJB', 'Matthew Barnes', 'A cool dude')
+('MJB', 'Matthew Boschert', 'A cool dude')
 RETURNING *;
 
 INSERT INTO scores ("score", "player", "machine") VALUES
