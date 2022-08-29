@@ -9,6 +9,8 @@ const {
   editTable,
   deleteTable,
 } = require("../queries/tables");
+
+const { tableScores, topFour } = require("../queries/scores");
 //Validations
 
 //Index - all tables
@@ -31,8 +33,16 @@ tables.get("/:machineid", async (req, res) => {
   console.log("Retreiving table");
   const { machineid } = req.params;
   const singleTable = await getTable(machineid);
+  const machineScores = await tableScores(machineid);
+  const topScores = await topFour(machineid);
+  
   if (singleTable.machineid) {
-    res.json({ payload: singleTable, success: true });
+    res.json({
+      payload: singleTable,
+      scores: machineScores,
+      topscores: topScores,
+      success: true,
+    });
   } else {
     res.status(404).json({
       success: false,

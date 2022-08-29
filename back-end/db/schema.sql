@@ -12,8 +12,7 @@ CREATE TABLE machines (
     designer TEXT,
     players INT,
     balls INT,
-    img TEXT,
-    grandchamp INT
+    img TEXT
 );
 
 CREATE TABLE players (

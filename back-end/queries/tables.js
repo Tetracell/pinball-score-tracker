@@ -1,4 +1,3 @@
-const { all } = require("../app.js");
 const db = require("../db/dbconfig.js");
 
 // name, manufacturer, prod_year, type, designer, players, balls -- column layout
@@ -6,8 +5,8 @@ const db = require("../db/dbconfig.js");
 // All Tables
 const getAllTables = async () => {
   try {
-    const allMachineas = await db.any("SELECT * FROM machines");
-    return allMachineas;
+    const allMachines = await db.any("SELECT * FROM machines");
+    return allMachines;
   } catch (error) {
     return error;
   }
@@ -25,6 +24,7 @@ const getTable = async (id) => {
     return error;
   }
 };
+
 
 // Create Table
 const createTable = async (table) => {
@@ -47,7 +47,7 @@ const createTable = async (table) => {
   }
 };
 
-// Edit Table
+// Edit Table -- low priority
 const editTable = async (id) => {
   try {
   } catch (error) {
@@ -55,7 +55,7 @@ const editTable = async (id) => {
   }
 };
 
-// Delete Table
+// Delete Table -- low priority
 const deleteTable = async (id) => {
   try {
   } catch (error) {
