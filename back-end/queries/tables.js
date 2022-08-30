@@ -1,4 +1,4 @@
-const db = require("../db/dbconfig.js");
+const db = require("../db/dbConfig");
 
 // name, manufacturer, prod_year, type, designer, players, balls -- column layout
 
