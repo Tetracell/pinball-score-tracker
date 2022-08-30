@@ -17,7 +17,7 @@ app.get("/", (req, res) => {
 const tablesController = require("./controllers/tablesController");
 app.use("/tables", tablesController);
 const playerController = require("./controllers/playerController");
-app.use("/player", playerController);
+app.use("/players", playerController);
 
 //404
 app.get("*", (req, res) => {

@@ -34,8 +34,7 @@ tables.get("/:machineid", async (req, res) => {
   const { machineid } = req.params;
   const singleTable = await getTable(machineid);
   const machineScores = await tableScores(machineid);
-  const topScores = await topFour(machineid);
-  
+
   if (singleTable.machineid) {
     res.json({
       payload: singleTable,
@@ -62,7 +61,7 @@ tables.post("/", async (req, res) => {
   }
 });
 
-//Edit table -- low priority
+//Edit table -- low priority (no query yet)
 tables.put("/:id", async (req, res) => {
   console.log("Editing table");
   const { id } = req.params;
@@ -74,7 +73,7 @@ tables.put("/:id", async (req, res) => {
   }
 });
 
-//Delete table -- low priority
+//Delete table -- low priority (no query yet)
 tables.delete("/:id", async (req, res) => {
   console.log("Removing table");
   const { id } = req.params;

@@ -14,19 +14,19 @@ const tableScores = async (id) => {
   }
 };
 
-//Top 4 for a table
-// const topFour = async (id) => {
-//   try {
-//     console.log("Retreiving the top four");
-//     const scores = await db.any(
-//       "SELECT * FROM scores WHERE machine=$1 ORDER BY score DESC LIMIT 4",
-//       id
-//     );
-//     return scores;
-//   } catch (error) {
-//     return error;
-//   }
-// };
+//Top 4 for a table - unnecessary?? - I think this could be useful still for the a potential rolling horizontal list that displays the games and the top 4 scores.
+const topFour = async (id) => {
+  try {
+    console.log("Retreiving the top four");
+    const scores = await db.any(
+      "SELECT * FROM scores WHERE machine=$1 ORDER BY score DESC LIMIT 4",
+      id
+    );
+    return scores;
+  } catch (error) {
+    return error;
+  }
+};
 
 //All scores for a player
 const playerScores = async (id) => {
@@ -40,6 +40,7 @@ const playerScores = async (id) => {
     return error;
   }
 };
+
 //Create new score
 const newScore = async (score) => {
   try {
@@ -57,4 +58,4 @@ const newScore = async (score) => {
 
 //Delete score <- Borderline no priority ->
 
-module.exports = { tableScores, playerScores, topFour, newScore };
+module.exports = { tableScores, playerScores, newScore, topFour };
