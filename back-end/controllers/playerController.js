@@ -5,7 +5,7 @@ const player = express.Router();
 const {
   getAllPlayers,
   getPlayer,
-  createPlayer,
+  addPlayer,
   editPlayer, // Low Priority - admin only
   deletePlayer, // Super low priority - admin only
 } = require("../queries/players");
@@ -47,9 +47,9 @@ player.get("/:id", async (req, res) => {
 player.post("/new", async (req, res) => {
   console.log("Creating player");
   try {
-    const newPlayer = await createPlayer(req.body);
+    const newPlayer = await addPlayer(req.body);
     res.status(200).json({ payload: newPlayer, success: true });
-  } catch (errror) {
+  } catch (error) {
     res.status(400).json({ error: error, success: false });
   }
 });
@@ -68,14 +68,13 @@ player.put("/:id", async (req, res) => {
 
 //Delete player -- requires auth
 player.delete("/:id", async (req, res) => {
-  console.log("Removing player");
   const { id } = req.params;
   try {
     const player = await deletePlayer(id);
-    if (player.name !== "QueryResultError") {
+    if (player.name !== "error") {
       res.status(200).json({ payload: player, success: true });
     } else {
-      throw error;
+      throw error = "Something went wrong";
     }
   } catch (error) {
     res.status(400).json({ error: error, success: false });
