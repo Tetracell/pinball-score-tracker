@@ -1,5 +1,3 @@
-import axios from "axios";
-import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router";
 
 //Components
@@ -20,7 +18,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />}></Route>
-        <Route path="/tables" element={<Tables />} />
+        <Route path="/tables" element={<Tables API={API}/>} />
         <Route path="/players" element={<Players />} />
       </Routes>
     </div>
