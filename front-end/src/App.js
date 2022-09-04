@@ -5,7 +5,7 @@ import { Navbar } from "./Components/Navbar";
 import { Home } from "./Components/Home";
 import { Tables } from "./Components/Tables";
 import { Players } from "./Components/Players";
-//import { ShowTable } from "./Components/ShowTable";
+import { ShowTable } from "./Components/ShowTable";
 //import { ShowPlayer } from "./Components/ShowPlayer";
 import("./App.css");
 
@@ -18,8 +18,9 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />}></Route>
-        <Route path="/tables" element={<Tables API={API}/>} />
+        <Route path="/tables" element={<Tables API={API} />} />
         <Route path="/players" element={<Players />} />
+        <Route path="/tables/:machineid" element={<ShowTable API={API} />} />
       </Routes>
     </div>
   );

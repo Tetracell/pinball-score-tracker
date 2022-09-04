@@ -1,6 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import "../styles/nav.css";
 
 //MUI
 import {
@@ -18,7 +19,7 @@ export const Navbar = () => {
   const navigate = useNavigate();
   return (
     <>
-      <AppBar color="transparent" position="sticky">
+      <AppBar className="navbar" position="sticky">
         <Toolbar>
           <IconButton
             size="medium"

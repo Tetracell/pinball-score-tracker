@@ -1,10 +1,26 @@
-import React from 'react'
+import React from "react";
+import { useParams, useNavigate } from "react-router";
+import axios from "axios";
 
-export const ShowTable = () => {
-  return (
-    <div>Main page that will show all the details of an individual
-        table, the top 4 scores of the table, and the personal best scores
-        of everyone who has put a score on this table
-    </div>
-  )
-}
+export const ShowTable = ({ API }) => {
+  const navigate = useNavigate();
+  const [table, setTable] = React.useState({
+    name: "",
+    manufacturer: "",
+    prod_year: 0,
+    type: "",
+    designer: "",
+    players: 0,
+    balls: 0,
+  });
+  const [topFour, setTopFour] = React.useState({});
+  const { machineid } = useParams();
+  React.useEffect(() => {
+    axios.get(`${API}/tables/${machineid}`).then((res) => {
+      setTable(res.data.payload);
+      
+      console.log(res);
+    });
+  }, []);
+  return <></>;
+};

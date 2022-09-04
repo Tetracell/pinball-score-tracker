@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import { TableCard } from "./TableCard";
 
 export const Tables = ({ API }) => {
   const [tables, setTables] = React.useState([]);
@@ -10,15 +11,12 @@ export const Tables = ({ API }) => {
   }, [tables, API]);
   return (
     <div id="all-tables">
-      The master list of tables. Cards, or card-like things that will show a
-      table, year, manuf, and the top 4 scores
       {tables.map((table) => {
         return (
-          <>
-            <br></br>
-            {table.name}<br></br>
-          </>
-        )
+          <div key={table.machineid}>
+            <TableCard table={table} />
+          </div>
+        );
       })}
     </div>
   );

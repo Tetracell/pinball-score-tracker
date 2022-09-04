@@ -34,6 +34,7 @@ tables.get("/:machineid", async (req, res) => {
   const { machineid } = req.params;
   const singleTable = await getTable(machineid);
   const machineScores = await tableScores(machineid);
+  const topScores = await topFour(machineid);
 
   if (singleTable.machineid) {
     res.json({
