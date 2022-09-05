@@ -29,8 +29,8 @@ export const TableCard = ({ table, API }) => {
     <>
       <Card
         sx={{
-          maxWidth: 200,
-          minWidth: 185,
+          maxWidth: 175,
+          minWidth: 175,
           backgroundColor: "#262624",
           marginTop: "5px",
         }}
