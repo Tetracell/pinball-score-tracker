@@ -19,7 +19,7 @@ export const Navbar = () => {
   const navigate = useNavigate();
   return (
     <>
-      <AppBar className="navbar" position="sticky">
+      <AppBar className="navbar" position="sticky" sx={{"backgroundColor": "black"}}>
         <Toolbar>
           <IconButton
             size="medium"

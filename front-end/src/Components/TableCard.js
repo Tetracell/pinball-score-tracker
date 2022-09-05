@@ -8,12 +8,20 @@ import "../styles/cards.css";
 export const TableCard = ({ table }) => {
   return (
     <>
-      <Card sx={{ maxWidth: 200, minWidth: 185 }} className="table-card">
+      <Card
+        sx={{
+          maxWidth: 200,
+          minWidth: 185,
+          "backgroundColor": "#262624",
+          "marginTop": "5px",
+        }}
+        className="table-card"
+      >
         <CardContent>
-          <Typography sx={{ fontSize: 16 }}>
+          <Typography sx={{ fontSize: 20}}>
             <Link to={`/tables/${table.machineid}`}>{table.name}</Link>
           </Typography>
-          <Typography sx={{ mb: 1, fontSize: 12 }}>
+          <Typography sx={{ mb: 1, fontSize: 12, "color":"gold" }}>
             {table.designer !== "designer_placeholder"
               ? table.designer
               : "Designer Unknown"}
@@ -25,7 +33,7 @@ export const TableCard = ({ table }) => {
             component="div"
             color="text.secondary"
           ></Typography>
-          <Typography sx={{ fontSize: 10 }}>
+          <Typography sx={{ fontSize: 10, "color":"antiquewhite" }}>
             Players: {table.players} | Balls: {table.balls}
           </Typography>
         </CardContent>
