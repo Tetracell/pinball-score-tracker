@@ -7,25 +7,8 @@ import "../styles/highscores.css"
 export const ShowTable = ({ API }) => {
   //const navigate = useNavigate();
   const titles = ["Grand Champion", "Score #1", "Score #2", "Score #3"];
-  const [table, setTable] = React.useState({
-    name: "",
-    manufacturer: "",
-    prod_year: 0,
-    type: "",
-    designer: "",
-    players: 0,
-    balls: 0,
-  });
-  const [topFour, setTopFour] = React.useState([
-    {
-      scoreid: null,
-      score: null,
-      date: null,
-      witness: null,
-      player: null,
-      machine: null,
-    },
-  ]);
+  const [table, setTable] = React.useState({});
+  const [topFour, setTopFour] = React.useState([{}]);
   const [players, setPlayers] = React.useState([{}]);
   const [scores, setScores] = React.useState([{}]);
   const { machineid } = useParams();
