@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { TableCard } from "./TableCard";
-import { Box } from "@mui/system";
+import { Box } from "@mui/material";
 import { Grid } from "@mui/material";
 import "../styles/alltables.css";
 

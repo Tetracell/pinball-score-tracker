@@ -10,6 +10,8 @@ const {
   deletePlayer, // Super low priority - admin only
 } = require("../queries/players");
 
+const {playerScores} = require("../queries/scores")
+
 //Validations
 
 //Index - all players
@@ -33,8 +35,9 @@ player.get("/:id", async (req, res) => {
   console.log("Retreiving player");
   const { id } = req.params;
   const singlePlayer = await getPlayer(id);
+  const singleScores = await playerScores(id);
   if (singlePlayer.name !== "QueryResultError") {
-    res.json({ payload: singlePlayer, success: true });
+    res.json({ payload: singlePlayer, scores: singleScores, success: true });
   } else {
     res.status(404).json({
       success: false,

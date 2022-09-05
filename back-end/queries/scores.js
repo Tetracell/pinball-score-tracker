@@ -15,6 +15,7 @@ const tableScores = async (id) => {
 };
 
 //Top 4 for a table - unnecessary?? - I think this could be useful still for the a potential rolling horizontal list that displays the games and the top 4 scores.
+// *** This is unnecessary. Remove later, most logic already in front-end ***
 const topFour = async (id) => {
   try {
     console.log("Retreiving the top four");
@@ -32,7 +33,7 @@ const topFour = async (id) => {
 const playerScores = async (id) => {
   try {
     const allScores = await db.any(
-      "SELECT * FROM scores WHERE player=$1 ORDER BY name ASC",
+      "SELECT * FROM scores WHERE player=$1 ORDER BY scoreid ASC",
       id
     );
     return allScores;
