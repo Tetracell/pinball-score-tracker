@@ -13,10 +13,11 @@ import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
+import { padding } from "@mui/system";
 
 export const ShowTable = ({ API }) => {
   //const navigate = useNavigate();
-  const titles = ["Grand Champion", "Score #1", "Score #2", "Score #3"];
+  const titles = ["Grand Champion", "First Place", "Second Place", "Third Place"];
   const [table, setTable] = React.useState({});
   const [topFour, setTopFour] = React.useState([{}]);
   const [players, setPlayers] = React.useState([{}]);
@@ -51,7 +52,14 @@ export const ShowTable = ({ API }) => {
         <Grid
           item
           xs={12}
-          sx={{ textAlign: "center", fontSize: "40px", color: "lightgreen" }}
+          sx={{
+            textAlign: "center",
+            fontSize: "40px",
+            color: "lightgreen",
+            border: "1px solid",
+            "border-radius": "40px",
+            backgroundColor: "#23432a",
+          }}
         >
           {table.name} <br></br> {table.manufacturer}, {table.prod_year}
         </Grid>
@@ -68,14 +76,23 @@ export const ShowTable = ({ API }) => {
         </Grid>
         {topFour.map((score, index) => {
           const player = score.player;
+          let colW = 12
+          index !== 0 ? colW = 4 : colW = 12
           return (
-            <div>
-              <p>
-                <strong>{titles[index]}</strong> : {score.score} -{" "}
-                {playerSearch(player)[0]}{" "}
-                <initials>{playerSearch(player)[1]}</initials>
-              </p>
-            </div>
+            <Grid item xs={colW} sx={{textAlign:"center", border:"1px solid green", paddingTop : "5px"}}>
+              <strong>{titles[index]}</strong>
+              <br/>
+              <initials>{playerSearch(player)[1]}</initials>
+              <br/>
+              {score.score}
+            </Grid>
+            // <div>
+            //   <p>
+            //     <strong>{titles[index]}</strong> : {score.score} -{" "}
+            //     {playerSearch(player)[0]}{" "}
+            //     <initials>{playerSearch(player)[1]}</initials>
+            //   </p>
+            // </div>
           );
         })}
         <p>ALL OTHER SCORES</p>
