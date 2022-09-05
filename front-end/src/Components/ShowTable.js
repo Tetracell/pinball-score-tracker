@@ -1,19 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useParams, useNavigate } from "react-router";
 import axios from "axios";
 import "../fonts/pinball-data.pinball.ttf";
 import "../styles/highscores.css";
 
 //MUI
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { Grid } from "@mui/material";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
-import { padding } from "@mui/system";
+
 
 export const ShowTable = ({ API }) => {
   //const navigate = useNavigate();
@@ -95,22 +93,68 @@ export const ShowTable = ({ API }) => {
               }}
             >
               <strong>{titles[index]}</strong>
-              <br />
-              <initials>{playerSearch(player)[1]}</initials>
-              <br />
-              {playerScore}
+
+              <div id="top-initials">{playerSearch(player)[1]}</div>
+              <div id="score">{playerScore}</div>
             </Grid>
           );
         })}
-        <p>ALL OTHER SCORES</p>
-        {scores.map((score, index) =>
-          index > 4 ? (
-            <p>
-              {score.score} - {playerSearch(score.player)[0]}{" "}
-              <initials>{playerSearch(score.player)[1]}</initials>
-            </p>
-          ) : null
-        )}
+        <Grid item xs={3}/>
+        <Grid item xs={6} sx={{"text-align":"center"}}>
+          <Typography sx={{
+            paddingTop:"10px",
+            fontFamily: "monospace",
+            fontSize:"15px",
+            textDecoration:"underline"
+          }}>
+            Other Scores
+          </Typography>
+          <div id="other-scores">
+            <Table>
+              <TableBody>
+                <TableRow id="columns">
+                  <TableCell
+                    sx={{ color: "white", textDecoration: "underline" }}
+                  >
+                    Initials
+                  </TableCell>
+                  <TableCell
+                    sx={{ color: "white", textDecoration: "underline" }}
+                  >
+                    Score
+                  </TableCell>
+                </TableRow>
+                {scores.map((score, index) => {
+                  if (index > 4) {
+                    return (
+                      <TableRow>
+                        <TableCell
+                          sx={{
+                            color: "orangered",
+                            "font-family": "gas",
+                            fontSize: "40px",
+                          }}
+                        >
+                          {playerSearch(score.player)[1]}
+                        </TableCell>
+                        <TableCell
+                          sx={{
+                            color: "orange",
+                            "font-family": "gas",
+                            fontSize: "40px",
+                          }}
+                        >
+                          {score.score}
+                        </TableCell>
+                      </TableRow>
+                    );
+                  }
+                })}
+              </TableBody>
+            </Table>
+          </div>
+        </Grid>
+        <Grid item xs={3}/>
       </Grid>
     </Box>
   );

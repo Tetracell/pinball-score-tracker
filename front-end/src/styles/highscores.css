@@ -1,6 +1,22 @@
-initials {
+#top-initials {
   font-family: gas;
   color: orangered;
-  font-size: 50px;
-  background-color: black;
+  font-size: 60px;
+  padding-right: 4px;
+}
+
+#other-initials {
+  font-family: gas;
+  color: orangered;
+  font-size: 30px;
+}
+
+#score {
+    font-family:gas;
+    color:orange;
+    font-size:25px;
+}
+
+#title {
+    text-decoration: underline;
 }

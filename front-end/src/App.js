@@ -11,7 +11,6 @@ import("./App.css");
 
 const API = process.env.REACT_APP_API_URL;
 
-console.log(API);
 function App() {
   return (
     <div className="app">
