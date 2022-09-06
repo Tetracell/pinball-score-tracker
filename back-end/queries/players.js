@@ -4,7 +4,7 @@ const db = require("../db/dbConfig");
 const getAllPlayers = async () => {
   try {
     console.log("Listing all players");
-    const players = await db.any("SELECT * FROM players ORDER BY name ASC");
+    const players = await db.any("SELECT * FROM players ORDER BY initials ASC");
     return players;
   } catch (error) {
     return error;

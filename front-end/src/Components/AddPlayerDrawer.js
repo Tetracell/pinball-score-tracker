@@ -20,12 +20,18 @@ export const AddPlayerDrawer = () => {
   });
 
   const handleSubmit = () => {
-    if (!newPlayer.initials) {
-      alert("Initials are required");
+    if (!newPlayer.initials || newPlayer.initials.length > 3) {
+      alert("Initials are required, can only be 3 characters");
       return;
+    } else if (!newPlayer.name) {
+      alert("Name is required");
     } else {
       addPlayer();
     }
+  };
+
+  const handleClose = () => {
+    setVisible(false);
   };
 
   const handleChange = (e) => {
@@ -41,19 +47,20 @@ export const AddPlayerDrawer = () => {
       .catch((error) => {
         console.log(error);
       });
-      setVisible(false);
+    setVisible(false);
+    setNewPlayer({ initials: "", name: "" });
   };
 
   return (
     <>
       <Button color="inherit" onClick={() => setVisible(true)}>
         Create Player
-        <Drawer anchor="left" open={visible} onClose={() => setVisible(false)}>
+        <Drawer temporary anchor="left" open={visible} onClose={handleClose}>
           <Box p={2} width="250px" textAlign="center" component="form">
             <Typography variant="h5">Add a Player</Typography>
             <TextField
               id="initials"
-              label="Initials"
+              label="Initials (3 characters)"
               variant="outlined"
               value={newPlayer.initials}
               onChange={handleChange}
@@ -69,7 +76,7 @@ export const AddPlayerDrawer = () => {
               required
             />
             <Button onClick={handleSubmit}>Add Player</Button>
-            <Button onClick={() => setVisible(false)}>Close Window</Button>
+            <Button onClick={handleClose}>Close Window</Button>
           </Box>
         </Drawer>
       </Button>
