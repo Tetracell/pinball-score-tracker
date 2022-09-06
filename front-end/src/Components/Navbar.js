@@ -28,11 +28,9 @@ export const Navbar = () => {
               navigate("/");
             }}
           >
-            <img src={sanctumLogo} alt="logo" height={65} width={65} />
+            <img src={sanctumLogo} alt="logo" height={80} width={80} />
           </IconButton>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Sanctum Score Dungeon
-          </Typography>
+
           <Stack direction="row" spacing={2}>
             <Button
               color="inherit"

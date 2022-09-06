@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useParams, useNavigate } from "react-router";
 import axios from "axios";
-import "../fonts/pinball-data.pinball.ttf";
+import "../fonts/Squad3DRegular-Yzaov.ttf";
 import "../styles/highscores.css";
 
 //MUI
@@ -12,9 +12,8 @@ import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
 import TableRow from "@mui/material/TableRow";
 
-
 export const ShowTable = ({ API }) => {
-  //const navigate = useNavigate();
+  const navigate = useNavigate();
   const titles = [
     "Grand Champion",
     "First Place",
@@ -37,7 +36,7 @@ export const ShowTable = ({ API }) => {
     axios.get(`${API}/players`).then((res) => {
       setPlayers(res.data.payload);
     });
-  });
+  }, []);
 
   const playerSearch = (id) => {
     let foundPlayer = [];
@@ -57,25 +56,21 @@ export const ShowTable = ({ API }) => {
           item
           xs={12}
           sx={{
-            textAlign: "center",
-            fontSize: "40px",
-            color: "lightgreen",
-            border: "1px solid",
-            "border-radius": "40px",
             backgroundColor: "#23432a",
+            border: "1px dotted",
+            borderColor: "greenyellow",
+            borderRadius: "4px",
           }}
         >
-          {table.name} <br></br> {table.manufacturer}, {table.prod_year}
+          <div id="title">{table.name}</div>
+          <div id="details">
+            {table.manufacturer}, {table.prod_year}
+          </div>
+          {table.designer !== "designer_placeholder" ? (
+            <div id="designer">Designed by: {table.designer}</div>
+          ) : null}
+          <div id="small-details">{table.type} | Players: {table.players} | Balls: {table.balls}</div>
         </Grid>
-        <Grid
-          item
-          xs={12}
-          sx={{
-            textAlign: "center",
-            "margin-top": "10px",
-            "text-decoration": "underline",
-          }}
-        ></Grid>
         {topFour.map((score, index) => {
           const player = score.player;
           const playerScore = score.score;
@@ -88,7 +83,8 @@ export const ShowTable = ({ API }) => {
               xs={colW}
               sx={{
                 textAlign: "center",
-                border: "1px solid green",
+                border: "1px dotted green",
+                borderRadius: "10px",
                 paddingTop: "5px",
               }}
             >
@@ -99,14 +95,16 @@ export const ShowTable = ({ API }) => {
             </Grid>
           );
         })}
-        <Grid item xs={3}/>
-        <Grid item xs={6} sx={{"text-align":"center"}}>
-          <Typography sx={{
-            paddingTop:"10px",
-            fontFamily: "monospace",
-            fontSize:"15px",
-            textDecoration:"underline"
-          }}>
+        <Grid item xs={3} />
+        <Grid item xs={6} sx={{ "text-align": "center" }}>
+          <Typography
+            sx={{
+              paddingTop: "10px",
+              fontFamily: "monospace",
+              fontSize: "15px",
+              textDecoration: "underline",
+            }}
+          >
             Other Scores
           </Typography>
           <div id="other-scores">
@@ -128,24 +126,10 @@ export const ShowTable = ({ API }) => {
                   if (index > 4) {
                     return (
                       <TableRow>
-                        <TableCell
-                          sx={{
-                            color: "orangered",
-                            "font-family": "gas",
-                            fontSize: "40px",
-                          }}
-                        >
+                        <TableCell id="other-initials">
                           {playerSearch(score.player)[1]}
                         </TableCell>
-                        <TableCell
-                          sx={{
-                            color: "orange",
-                            "font-family": "gas",
-                            fontSize: "40px",
-                          }}
-                        >
-                          {score.score}
-                        </TableCell>
+                        <TableCell id="score">{score.score}</TableCell>
                       </TableRow>
                     );
                   }
@@ -154,7 +138,7 @@ export const ShowTable = ({ API }) => {
             </Table>
           </div>
         </Grid>
-        <Grid item xs={3}/>
+        <Grid item xs={3} />
       </Grid>
     </Box>
   );

@@ -18,7 +18,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/tables" element={<Tables API={API} />} />
-        <Route path="/players" element={<Players />} />
+        <Route path="/players" element={<Players API={API} />} />
         <Route path="/tables/:machineid" element={<ShowTable API={API} />} />
       </Routes>
     </div>

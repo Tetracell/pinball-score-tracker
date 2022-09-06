@@ -1,22 +1,56 @@
+@font-face {
+  font-family: "Gas";
+  src: url("../fonts/GAS_____.TTF");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Squad";
+  src: url("../fonts/SquadRegular-8Md3z.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+#title {
+  padding-top: 10px;
+  text-align: center;
+  font-size:60px;
+  color: lightgreen;
+  text-decoration: none;
+  font-family: "Squad";
+  font-weight: lighter;
+}
+
+#details {
+  text-align: center;
+  color: gold;
+  font-size: 20px;
+}
+
 #top-initials {
-  font-family: gas;
+  font-family: "Gas";
   color: orangered;
   font-size: 60px;
   padding-right: 4px;
 }
 
 #other-initials {
-  font-family: gas;
+  font-family: "Gas";
   color: orangered;
-  font-size: 30px;
+  font-size: 40px;
+}
+
+#small-details {
+  text-align: center;
+  padding-bottom: 10px;
 }
 
 #score {
-    font-family:gas;
-    color:orange;
-    font-size:25px;
+  font-family: "Squad";
+  color: orange;
+  font-size: 35px;
 }
 
-#title {
-    text-decoration: underline;
+#designer {
+    text-align: center;
 }
