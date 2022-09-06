@@ -11,15 +11,41 @@ import {
   Typography,
   Stack,
   Button,
+  Drawer,
+  Box,
 } from "@mui/material";
 
+import { AddPlayerDrawer } from "./AddPlayerDrawer";
 const sanctumLogo = require("../13082625_805039766292952_7729151040459603827_n.png");
 
 export const Navbar = () => {
   const navigate = useNavigate();
+  const [createVis, setCreateVis] = React.useState(false);
+
+  const createPlayerDrawer = (visible) => {
+    setCreateVis(visible);
+    return (
+      <Drawer
+        anchor="left"
+        open={createVis}
+        onClose={() => setCreateVis(false)}
+      >
+        <Box width="250px" textAlign="center" role="presentation">
+          <Typography variant="h6" component="div">
+            Side Panel!
+          </Typography>
+        </Box>
+      </Drawer>
+    );
+  };
+
   return (
     <>
-      <AppBar className="navbar" position="sticky" sx={{"backgroundColor": "black"}}>
+      <AppBar
+        className="navbar"
+        position="sticky"
+        sx={{ backgroundColor: "black" }}
+      >
         <Toolbar>
           <IconButton
             size="medium"
@@ -48,15 +74,11 @@ export const Navbar = () => {
             >
               Players
             </Button>
-            <Button color="inherit">Create Player</Button>
+            <AddPlayerDrawer/>
             <Button color="inherit">Add Score</Button>
           </Stack>
         </Toolbar>
       </AppBar>
-      {/* <h1>I AM THE NAVBAR! KNEEL BEFORE ME AND WEEP</h1>
-      <Link to="/">Home</Link>
-      <Link to="/tables">Tables</Link>
-      <Link to="/players">Players</Link> */}
     </>
   );
 };

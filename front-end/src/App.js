@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router";
+import React from "react";
 
 //Components
 import { Navbar } from "./Components/Navbar";
@@ -7,11 +8,13 @@ import { Tables } from "./Components/Tables";
 import { Players } from "./Components/Players";
 import { ShowTable } from "./Components/ShowTable";
 //import { ShowPlayer } from "./Components/ShowPlayer";
+//import { AddPlayerDrawer } from "./Components/AddPlayerDrawer";
 import("./App.css");
 
 const API = process.env.REACT_APP_API_URL;
 
 function App() {
+  //const [addPlayerVisible, setAddPlayerVisible] = React.useState(false);
   return (
     <div className="app">
       <Navbar />

@@ -30,7 +30,7 @@ const addPlayer = async (player) => {
     console.log("Adding player to database");
     player = await db.one(
       "INSERT INTO players (initials, name, nickname, avatar) VALUES ($1, $2, $3, $4) RETURNING *",
-      [player.initials, player.name, player.nickname, player.avatar]
+      [player.initials.toUpperCase(), player.name, player.nickname, player.avatar]
     );
     return player;
   } catch (error) {
