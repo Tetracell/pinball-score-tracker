@@ -16,8 +16,14 @@ const API = process.env.REACT_APP_API_URL;
 
 export const AddScoreDrawer = () => {
   const [visible, setVisible] = React.useState(false);
+  //For the GET request for players and tables
   const [players, setPlayers] = React.useState([{}]);
   const [tables, setTables] = React.useState([{}]);
+
+  const [chosenPlayer, setChosenPlayer] = React.useState();
+  const [chosenTable, setChosenTable] = React.useState();
+  const [score, setScore] = React.useState();
+
   const [newScore, setNewScore] = React.useState({
     score: 0,
     player: 0,
@@ -33,29 +39,35 @@ export const AddScoreDrawer = () => {
     });
   };
 
-  const handleSubmit = () => {
-    if (!newScore.score || !newScore.player || newScore.machine) {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setNewScore({ score: score, player: chosenPlayer, machine: chosenTable });
+    if (!score || !chosenTable || !chosenPlayer) {
       alert("Please make sure all fields are filled before submitting");
       return;
-    } else {
-      addScore();
     }
+    addScore();
   };
+
   const handleClose = () => {
     setVisible(false);
   };
 
-  const handleChange = (e) => {
-    //player id from dropdown menu
-    //machine id from dropdown menu
-    //score is a text box (number);
+  const handleChangeScore = (e) => {
+    setScore(Number(e.target.value)); //Coming in a string because...?
   };
-
-  const handleSelect = (e) => {};
+  const handleChangeTable = (e) => {
+    setChosenTable(e.target.value);
+    console.log(chosenTable + "Chosen Table ID");
+  };
+  const handleChangePlayer = (e) => {
+    setChosenPlayer(e.target.value);
+    console.log(chosenPlayer + "Chosen Player ID");
+  };
 
   const addScore = () => {
     axios
-      .post(`${API}/score/new`, newScore)
+      .post(`${API}/scores/new`, newScore)
       .then((res) => {
         setNewScore(res.data);
       })
@@ -63,6 +75,7 @@ export const AddScoreDrawer = () => {
         console.log(error);
       });
     setVisible(false);
+    console.log(newScore);
   };
 
   return (
@@ -77,15 +90,22 @@ export const AddScoreDrawer = () => {
         Add Score
       </Button>
       <Drawer anchor="right" open={visible} onClose={handleClose}>
-        <Box p={2} width="250px" textAlign="center" component="form">
+        <Box
+          p={2}
+          width="250px"
+          textAlign="center"
+          component="form"
+          onSubmit={handleSubmit}
+        >
           <Typography variant="h5" sx={{ marginBottom: "5px" }}>
             Add New Score
           </Typography>
           <InputLabel id="player-select-menu">Choose Player</InputLabel>
           <Select
             labelId="player-select-menu"
-            id="player-select"
-            onChange={handleSelect}
+            id="player"
+            onChange={handleChangePlayer}
+            value={chosenPlayer}
           >
             {players.map((player) => {
               return (
@@ -99,23 +119,30 @@ export const AddScoreDrawer = () => {
           <InputLabel id="table-select-menu">Choose Table</InputLabel>
           <Select
             labelId="table-select-menu"
-            id="table-select"
-            onChange={handleSelect}
+            id="machine"
+            onChange={handleChangeTable}
+            label="Table"
+            value={chosenTable}
           >
             {tables.map((table) => {
-              return (
-                <MenuItem value={table.machineid}>
-                  {table.name}: {table.manufacturer}
-                </MenuItem>
-              );
+              return <MenuItem value={table.machineid}>{table.name}</MenuItem>;
             })}
           </Select>
           <br />
           <br />
           <InputLabel id="score-input-field">Enter Score</InputLabel>
-          <TextField labelId="score-input-field" type="number"></TextField>
-          <Button>Submit Score</Button>
+          <TextField
+            labelId="score-input-field"
+            id="score"
+            type="number"
+            onChange={handleChangeScore}
+            value={score}
+          ></TextField>
+          <Button type="submit">Submit Score</Button>
           <Button onClick={handleClose}>Close Window</Button>
+          <Button onClick={() => {
+            console.log(chosenPlayer + " " + chosenTable + " " + score)
+          }}>DEBUG BUTTON</Button>
         </Box>
       </Drawer>
     </>

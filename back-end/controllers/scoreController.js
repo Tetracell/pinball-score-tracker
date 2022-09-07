@@ -1,19 +1,23 @@
 const express = require("express");
-const score = express.Router();
+const scores = express.Router();
 
 //Queries
 const { newScore } = require("../queries/scores");
 
 //Routes
 
-score.post("/new", async (req, res) => {
+scores.post("/new", async (req, res) => {
   console.log("Adding score");
   try {
+    console.log(req.body);
     const addScore = await newScore(req.body);
+    if (res.data.payload === 'error') {
+      console.log("WHOOPSIE");
+    }
     res.status(200).json({ payload: addScore, success: true });
   } catch (error) {
     res.status(400).json({ error: error, succes: false });
   }
 });
 
-module.exports = score;
+module.exports = scores;
