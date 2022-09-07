@@ -20,14 +20,13 @@ export const AddScoreDrawer = () => {
   const [players, setPlayers] = React.useState([{}]);
   const [tables, setTables] = React.useState([{}]);
 
-  const [chosenPlayer, setChosenPlayer] = React.useState();
-  const [chosenTable, setChosenTable] = React.useState();
-  const [score, setScore] = React.useState();
+  //const [chosenPlayer, setChosenPlayer] = React.useState();
+  //const [chosenTable, setChosenTable] = React.useState();
 
   const [newScore, setNewScore] = React.useState({
     score: 0,
     player: 0,
-    machine: 0,
+    machine: "",
   });
 
   const getData = () => {
@@ -40,9 +39,7 @@ export const AddScoreDrawer = () => {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    setNewScore({ score: score, player: chosenPlayer, machine: chosenTable });
-    if (!score || !chosenTable || !chosenPlayer) {
+    if (!newScore.score || !newScore.machine || !newScore.player) {
       alert("Please make sure all fields are filled before submitting");
       return;
     }
@@ -53,16 +50,16 @@ export const AddScoreDrawer = () => {
     setVisible(false);
   };
 
+  //Something was / is making e.target.id come out as undefined, so I made these
+  // hardcoded functions with key names. Can't figure out the problem.
   const handleChangeScore = (e) => {
-    setScore(Number(e.target.value)); //Coming in a string because...?
+    setNewScore({ ...newScore, score: e.target.value });
   };
   const handleChangeTable = (e) => {
-    setChosenTable(e.target.value);
-    console.log(chosenTable + "Chosen Table ID");
+    setNewScore({ ...newScore, machine: e.target.value });
   };
   const handleChangePlayer = (e) => {
-    setChosenPlayer(e.target.value);
-    console.log(chosenPlayer + "Chosen Player ID");
+    setNewScore({ ...newScore, player: e.target.value });
   };
 
   const addScore = () => {
@@ -75,7 +72,6 @@ export const AddScoreDrawer = () => {
         console.log(error);
       });
     setVisible(false);
-    console.log(newScore);
   };
 
   return (
@@ -105,7 +101,7 @@ export const AddScoreDrawer = () => {
             labelId="player-select-menu"
             id="player"
             onChange={handleChangePlayer}
-            value={chosenPlayer}
+            value={newScore.player}
           >
             {players.map((player) => {
               return (
@@ -122,7 +118,7 @@ export const AddScoreDrawer = () => {
             id="machine"
             onChange={handleChangeTable}
             label="Table"
-            value={chosenTable}
+            value={newScore.table}
           >
             {tables.map((table) => {
               return <MenuItem value={table.machineid}>{table.name}</MenuItem>;
@@ -136,13 +132,17 @@ export const AddScoreDrawer = () => {
             id="score"
             type="number"
             onChange={handleChangeScore}
-            value={score}
+            value={newScore.score}
           ></TextField>
           <Button type="submit">Submit Score</Button>
           <Button onClick={handleClose}>Close Window</Button>
-          <Button onClick={() => {
-            console.log(chosenPlayer + " " + chosenTable + " " + score)
-          }}>DEBUG BUTTON</Button>
+          <Button
+            onClick={() => {
+              console.log(newScore);
+            }}
+          >
+            DEBUG BUTTON
+          </Button>
         </Box>
       </Drawer>
     </>

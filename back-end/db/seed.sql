@@ -12,14 +12,14 @@ INSERT INTO machines ("name", "manufacturer", "prod_year", "type", "designer", "
 ('Daily Dozen','Bally',1937,'EM','Frank Maitland',1,5),
 ('Deadpool (Pro)','Stern',2018,'Modern','George Gomez',4,3),
 ('Dirty Harry','Williams',1995,'DMD','Barry Oursler',4,3),
-('Doodle Bug','Williams',1971,'EM','designer_placeholder',2,5),
+('Doodle Bug','Williams',1971,'EM','designer_placeholder',1,5),
 ('Eight Ball Deluxe','Bally',1981,'Solid State','George Chrstian',4,3),
 ('Firepower','Williams',1980,'Solid State','Steve Ritchie',4,3),
 ('Flip Flop','Bally',1974,'EM','designer_placeholder',4,5),
 ('Frontier','Bally',1980,'Solid State','George Chrstian',4,3),
 ('Funhouse','Williams',1990,'Solid State','Pat Lawlor',4,3),
 ('Godzilla (Premium)','Stern',2021,'Modern','Keith Elwin',4,3),
-('Guns N'' Roses','Jersey Jack',2002,'Modern','Eric Meunier',4,3),
+('Guns N'' Roses','Jersey Jack',2020,'Modern','Eric Meunier',4,3),
 ('Harlem Globetrotters On Tour','Bally',1978,'Solid State','designer_placeholder',4,3),
 ('High Speed','Williams',1986,'Solid State','Steve Ritchie',4,3),
 ('Hokus Pokus','Bally',1975,'EM','designer_placeholder',2,5),
@@ -59,7 +59,8 @@ INSERT INTO players ("initials", "name", "nickname") VALUES
 ('WGD', 'Wes Frosolone', 'Westofferson'),
 ('CP.', 'Chris Point', 'Cannolli Party'),
 ('JDS', 'James Swain Jr.', 'B-Division'),
-('MJB', 'Matthew Boschert', 'Thunderlips')
+('MJB', 'Matthew Boschert', 'Thunderlips'),
+('KJB', 'Kristen Bayusik', 'The Cheesemonger')
 RETURNING *;
 
 INSERT INTO scores ("score", "player", "machine") VALUES
