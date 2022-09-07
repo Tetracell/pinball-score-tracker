@@ -1,2 +1,74 @@
-INSERT INTO test (name) VALUES
+\c pbtracker;
 
+INSERT INTO machines ("name", "manufacturer", "prod_year", "type", "designer", "players", "balls") VALUES
+('Ali','Stern',1980,'Solid State','Harry Williams',4,3),
+('Banzai Run','Williams',1988,'Solid State','Pat Lawlor',4,3),
+('Big Game','Stern',1980,'Solid State','Harry Williams',4,3),
+('Black Jack','Bally',1977,'Solid State','Jim Patla',4,3),
+('Bow & Arrow','Bally',1974,'EM','designer_placeholder',4,5),
+('Centaur','Bally',1981,'Solid State','designer_placeholder',4,3),
+('Congo','Williams',1995,'DMD','John Trudeau',4,3),
+('Cosmic Gunfight','Williams',1982,'Solid State','designer_placeholder',4,3),
+('Daily Dozen','Bally',1937,'EM','Frank Maitland',1,5),
+('Deadpool (Pro)','Stern',2018,'Modern','George Gomez',4,3),
+('Dirty Harry','Williams',1995,'DMD','Barry Oursler',4,3),
+('Doodle Bug','Williams',1971,'EM','designer_placeholder',1,5),
+('Eight Ball Deluxe','Bally',1981,'Solid State','George Chrstian',4,3),
+('Firepower','Williams',1980,'Solid State','Steve Ritchie',4,3),
+('Flip Flop','Bally',1974,'EM','designer_placeholder',4,5),
+('Frontier','Bally',1980,'Solid State','George Chrstian',4,3),
+('Funhouse','Williams',1990,'Solid State','Pat Lawlor',4,3),
+('Godzilla (Premium)','Stern',2021,'Modern','Keith Elwin',4,3),
+('Guns N'' Roses','Jersey Jack',2020,'Modern','Eric Meunier',4,3),
+('Harlem Globetrotters On Tour','Bally',1978,'Solid State','designer_placeholder',4,3),
+('High Speed','Williams',1986,'Solid State','Steve Ritchie',4,3),
+('Hokus Pokus','Bally',1975,'EM','designer_placeholder',2,5),
+('Hoops','Gottlieb',1991,'Solid State','designer_placeholder',4,3),
+('The Incredible Hulk','Gottlieb',1977,'Solid State','designer_placeholder',4,3),
+('Indianapolis 500','Bally',1995,'DMD','Dennis Nordman',4,3),
+('Lectronamo','Stern',1978,'Solid State','designer_placeholder',4,3),
+('The Machine : Bride of Pinbot 2.0','Dutch Pinball',2014,'DMD','Python Anghelo',4,3),
+('Medieval Madness','Williams',1997,'DMD','Brian Eddy',4,3),
+('Medusa','Bally',1981,'Solid State','Wally Welch',4,3),
+('Memory Lane','Stern',1978,'Solid State','Sam Stern',4,3),
+('Meteor','Stern',1979,'Solid State','Steve Kirk',4,3),
+('Mousin'' Around!','Bally',1989,'Solid State','Ward Pemberton',4,3),
+('Old Chicago','Bally',1975,'EM','Greg Kmiec',4,5),
+('PIN-BOT','Williams',1986,'Solid State','Barry Oursler',4,3),
+('Paragon','Bally',1978,'Solid State','Greg Kmiec',4,3),
+('Pinball by Stern','Stern',1977,'Solid State','designer_placeholder',4,3),
+('Rack ''Em Up!','Gottlieb',1983,'Solid State','designer_placeholder',4,3),
+('Rawhide','Stern',1977,'EM','designer_placeholder',4,5),
+('Rick and Morty','Spooky',2019,'Modern','Scott Danesi',4,3),
+('Robocop','Data East',1989,'Solid State','designer_placeholder',4,3),
+('Rush (LE)','Stern',2022,'Modern','John Borg',4,3),
+('Seawitch','Stern',1980,'Solid State','Mike Kubin',4,3),
+('The Shadow','Bally',1994,'DMD','Brian Eddy',4,3),
+('Star Gazer','Stern',1980,'Solid State','designer_placeholder',4,3),
+('Stars','Stern',1978,'Solid State','Steve Kirk',4,3),
+('Tales of the Arabian Nights','Williams',1996,'DMD','John Popadiuk',4,3),
+('Taxi','Williams',1988,'Solid State','Mark Ritchie',4,3),
+('Theatre of Magic','Bally',1995,'DMD','John Popadiuk',4,3),
+('Total Nuclear Annihilation','Spooky',2017,'Modern','Scott Danesi',4,3),
+('Transporter : The Rescue','Bally',1989,'Solid State','designer_placeholder',4,3),
+('Viper','Stern',1981,'Solid State','Joe Joos Jr.',4,3) 
+RETURNING *;
+
+INSERT INTO players ("initials", "name", "nickname") VALUES
+('TTT', 'Tom LaTulipe', 'T3'),
+('WGD', 'Wes Frosolone', 'Westofferson'),
+('CP.', 'Chris Point', 'Cannolli Party'),
+('JDS', 'James Swain Jr.', 'B-Division'),
+('MJB', 'Matthew Boschert', 'Thunderlips'),
+('KJB', 'Kristen Bayusik', 'The Cheesemonger')
+RETURNING *;
+
+INSERT INTO scores ("score", "player", "machine") VALUES
+(270000, 1, 46),
+(500, 2, 23),
+(100000, 3, 14),
+(235920, 1, 18),
+(29492, 2, 15),
+(4828349, 1, 20),
+(49029, 3, 21)
+RETURNING *;

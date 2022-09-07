@@ -64,7 +64,7 @@ INSERT INTO players ("initials", "name", "nickname") VALUES
 RETURNING *;
 
 INSERT INTO scores ("score", "player", "machine") VALUES
-(27000000, 1, 46),
+(270000, 1, 46),
 (500, 2, 23),
 (100000, 3, 14),
 (235920, 1, 18),
