@@ -16,7 +16,7 @@ export const AddPlayerDrawer = () => {
   const [visible, setVisible] = React.useState(false);
   const [newPlayer, setNewPlayer] = React.useState({
     initials: "",
-    name: null,
+    name: "",
   });
 
   // I'd like to create a validation function that will go through the initials, and if
@@ -52,7 +52,6 @@ export const AddPlayerDrawer = () => {
         console.log(error);
       });
     setVisible(false);
-    setNewPlayer({ initials: "", name: "" });
   };
 
   return (

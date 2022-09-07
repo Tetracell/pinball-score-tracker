@@ -16,6 +16,7 @@ import {
 } from "@mui/material";
 
 import { AddPlayerDrawer } from "./AddPlayerDrawer";
+import { AddScoreDrawer } from "./AddScoreDrawer";
 const sanctumLogo = require("../13082625_805039766292952_7729151040459603827_n.png");
 
 export const Navbar = () => {
@@ -75,7 +76,7 @@ export const Navbar = () => {
               Players
             </Button>
             <AddPlayerDrawer onClick={console.log("clicked")}/>
-            <Button color="inherit">Add Score</Button>
+            <AddScoreDrawer/>
           </Stack>
         </Toolbar>
       </AppBar>
