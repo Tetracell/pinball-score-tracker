@@ -74,7 +74,7 @@ export const Navbar = () => {
             >
               Players
             </Button>
-            <AddPlayerDrawer/>
+            <AddPlayerDrawer onClick={console.log("clicked")}/>
             <Button color="inherit">Add Score</Button>
           </Stack>
         </Toolbar>

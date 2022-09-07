@@ -18,8 +18,8 @@ const tablesController = require("./controllers/tablesController");
 app.use("/tables", tablesController);
 const playerController = require("./controllers/playerController");
 app.use("/players", playerController);
-// const scoreController = require("./controllers/scoreController");
-// app.use("/scores", scoreController)
+const scoreController = require("./controllers/scoreController");
+app.use("/scores", scoreController)
 
 //404
 app.get("*", (req, res) => {
