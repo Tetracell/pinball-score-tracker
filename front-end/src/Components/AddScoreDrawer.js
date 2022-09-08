@@ -24,8 +24,8 @@ export const AddScoreDrawer = () => {
   //const [chosenTable, setChosenTable] = React.useState();
 
   const [newScore, setNewScore] = React.useState({
-    score: 0,
-    player: 0,
+    score: "",
+    player: "",
     machine: "",
   });
 
@@ -118,7 +118,7 @@ export const AddScoreDrawer = () => {
             id="machine"
             onChange={handleChangeTable}
             label="Table"
-            value={newScore.table}
+            value={newScore.machine}
           >
             {tables.map((table) => {
               return <MenuItem value={table.machineid}>{table.name}</MenuItem>;
