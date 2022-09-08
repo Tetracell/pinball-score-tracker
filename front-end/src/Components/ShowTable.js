@@ -123,7 +123,7 @@ export const ShowTable = ({ API }) => {
                   </TableCell>
                 </TableRow>
                 {scores.map((score, index) => {
-                  if (index > 4) {
+                  if (index >= 4) {
                     return (
                       <TableRow>
                         <TableCell id="other-initials">
