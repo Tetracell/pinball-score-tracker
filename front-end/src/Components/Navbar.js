@@ -1,5 +1,5 @@
 import React from "react";
-//import { Link } from "react-router-dom";
+
 import { useNavigate } from "react-router-dom";
 import "../styles/nav.css";
 
@@ -21,24 +21,7 @@ const sanctumLogo = require("../13082625_805039766292952_7729151040459603827_n.p
 
 export const Navbar = () => {
   const navigate = useNavigate();
-  const [createVis, setCreateVis] = React.useState(false);
 
-  const createPlayerDrawer = (visible) => {
-    setCreateVis(visible);
-    return (
-      <Drawer
-        anchor="left"
-        open={createVis}
-        onClose={() => setCreateVis(false)}
-      >
-        <Box width="250px" textAlign="center" role="presentation">
-          <Typography variant="h6" component="div">
-            Side Panel!
-          </Typography>
-        </Box>
-      </Drawer>
-    );
-  };
 
   return (
     <>

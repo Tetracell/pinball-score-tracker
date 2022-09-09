@@ -13,7 +13,6 @@ import TableCell from "@mui/material/TableCell";
 import TableRow from "@mui/material/TableRow";
 
 export const ShowTable = ({ API }) => {
-  const navigate = useNavigate();
   const titles = [
     "Grand Champion",
     "First Place",
