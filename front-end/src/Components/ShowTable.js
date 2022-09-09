@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams, useNavigate } from "react-router";
+import { useParams } from "react-router";
 import axios from "axios";
 import "../fonts/Squad3DRegular-Yzaov.ttf";
 import "../styles/highscores.css";
@@ -122,8 +122,8 @@ export const ShowTable = ({ API }) => {
                   </TableCell>
                 </TableRow>
                 {scores.map((score, index) => {
-                  if (index >= 4) {
-                    return (
+                  if (index >= 4) { //I'd like to start AT 4 here - what can I do?
+                    return ( //React console complains of no return - but it's here.
                       <TableRow>
                         <TableCell id="other-initials">
                           {playerSearch(score.player)[1]}
