@@ -8,11 +8,8 @@ import {
   AppBar,
   Toolbar,
   IconButton,
-  Typography,
   Stack,
   Button,
-  Drawer,
-  Box,
 } from "@mui/material";
 
 import { AddPlayerDrawer } from "./AddPlayerDrawer";
