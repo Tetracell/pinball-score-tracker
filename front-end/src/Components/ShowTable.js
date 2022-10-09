@@ -29,7 +29,7 @@ export const ShowTable = ({ API }) => {
   React.useEffect(() => {
     axios.get(`${API}/tables/${machineid}`).then((res) => {
       setTable(res.data.payload);
-      setTopFour(res.data.topscores);
+      //setTopFour(res.data.topscores);
       setScores(res.data.scores);
     });
     axios.get(`${API}/players`).then((res) => {
@@ -70,7 +70,7 @@ export const ShowTable = ({ API }) => {
           ) : null}
           <div id="small-details">{table.type} | Players: {table.players} | Balls: {table.balls}</div>
         </Grid>
-        {topFour.map((score, index) => {
+        {topScores.map((score, index) => {
           const player = score.player;
           const playerScore = score.score;
           let colW;
@@ -88,7 +88,6 @@ export const ShowTable = ({ API }) => {
               }}
             >
               <strong>{titles[index]}</strong>
-
               <div id="top-initials">{playerSearch(player)[1]}</div>
               <div id="score">{playerScore}</div>
             </Grid>
