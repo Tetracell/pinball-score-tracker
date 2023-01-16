@@ -11,7 +11,7 @@ scores.post("/new", async (req, res) => {
   try {
     console.log(req.body);
     const addScore = await newScore(req.body);
-    res.status(200).json({ payload: addScore, success: true });
+    res.status(200).json({ data: addScore, success: true });
   } catch (error) {
     res.status(400).json({ error: error, succes: false });
   }

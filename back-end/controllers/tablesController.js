@@ -18,7 +18,7 @@ tables.get("/", async (req, res) => {
   console.log("Listing all tables");
   const allTables = await getAllTables();
   if (allTables[0]) {
-    res.status(200).json({ payload: allTables, success: true });
+    res.status(200).json({ data: allTables, success: true });
   } else {
     res.status(500).json({
       success: false,

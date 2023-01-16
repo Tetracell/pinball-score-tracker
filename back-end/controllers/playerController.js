@@ -51,7 +51,7 @@ player.post("/new", async (req, res) => {
   console.log("Creating player");
   try {
     const newPlayer = await addPlayer(req.body);
-    res.status(200).json({ payload: newPlayer, success: true });
+    res.status(200).json({ data: newPlayer, success: true });
   } catch (error) {
     res.status(400).json({ error: error, success: false });
   }
