@@ -35,7 +35,7 @@ export const ShowTable = ({ API }) => {
     axios.get(`${API}/players`).then((res) => {
       setPlayers(res.data.payload);
     });
-  }, []);
+  }, [API, machineid]);
 
   const playerSearch = (id) => {
     let foundPlayer = [];
