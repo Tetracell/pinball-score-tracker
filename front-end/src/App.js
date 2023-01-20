@@ -24,7 +24,7 @@ function App() {
         <Route path="/tables" element={<Tables API={API} />} />
         <Route path="/players" element={<Players API={API} />} />
         <Route path="/tables/:machineid" element={<ShowTable API={API} />} />
-        <Route path="/tv-mode" element={<TvDisplay API={API} />} />
+        <Route path="/tv-display" element={<TvDisplay API={API} />} />
       </Routes>
     </div>
   );
