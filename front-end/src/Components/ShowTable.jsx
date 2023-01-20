@@ -37,17 +37,6 @@ export const ShowTable = ({ API }) => {
     });
   }, [API, machineid]);
 
-  const playerSearch = (id) => {
-    let foundPlayer = [];
-    players.forEach((player) => {
-      if (player.playerid === id) {
-        foundPlayer.push(player.name);
-        foundPlayer.push(player.initials);
-      }
-    });
-    return foundPlayer;
-  };
-
   return (
     <Box>
       <Grid container>
@@ -72,29 +61,7 @@ export const ShowTable = ({ API }) => {
             {table.type} | Players: {table.players} | Balls: {table.balls}
           </div>
         </Grid>
-        {topFour.map((score, index) => {
-          const player = score.player;
-          const playerScore = score.score;
-          let colW;
-
-          index !== 0 ? (colW = 4) : (colW = 12);
-          return (
-            <Grid
-              item
-              xs={colW}
-              sx={{
-                textAlign: "center",
-                border: "1px dotted green",
-                borderRadius: "10px",
-                paddingTop: "5px",
-              }}
-            >
-              <strong>{titles[index]}</strong>
-              <div id="top-initials">{playerSearch(player)[1]}</div>
-              <div id="score">{playerScore}</div>
-            </Grid>
-          );
-        })}
+        {topScores(topFour)}
         <Grid item xs={3} />
         {moreScores(scores)}
         <Grid item xs={3} />
@@ -102,6 +69,53 @@ export const ShowTable = ({ API }) => {
     </Box>
   );
 
+  
+  function playerSearch(id) {
+    let foundPlayer = [];
+    players.forEach((player) => {
+      if (player.playerid === id) {
+        foundPlayer.push(player.name);
+        foundPlayer.push(player.initials);
+      }
+    });
+    return foundPlayer;
+  }
+  
+  /** Displays the top four scores (grand champion, 1st, 2nd, 3rd)
+   * @param {array} topFour - The top four scores, w/ attached player ID's
+   */
+  function topScores(topFour) {
+    // Going to be responsible for displaying the top 4 scores for the machine
+    // Should this potentially be moved off into it's own component?
+    return topFour.map((score, index) => {
+      const player = score.player;
+      const playerScore = score.score;
+      let colW;
+
+      index !== 0 ? (colW = 4) : (colW = 12);
+      return (
+        <Grid
+          item
+          xs={colW}
+          sx={{
+            textAlign: "center",
+            border: "1px dotted green",
+            borderRadius: "10px",
+            paddingTop: "5px",
+          }}
+        >
+          <strong>{titles[index]}</strong>
+          <div id="top-initials">{playerSearch(player)[1]}</div>
+          <div id="score">{playerScore}</div>
+        </Grid>
+      );
+    });
+  }
+  /** Displays all other high scores submitted by players. Only shows
+   * one score per player.
+   * @param {array} scores - All other high scores starting after
+   * the third place score
+   */
   function moreScores(scores) {
     // Should this potentially be moved off into it's own component?
     if (scores.length > 4) {

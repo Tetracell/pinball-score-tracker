@@ -22,7 +22,6 @@ export const TableCard = ({ table, API }) => {
 
   React.useEffect(() => {
     singleTable(table);
-    //console.log(score);
   }, []);
 
   return (
