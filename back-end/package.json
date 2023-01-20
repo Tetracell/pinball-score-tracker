@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js",
+    "start": "sudo npx nodemon server.js",
     "db:seed": "psql postgresql://tom:a7466d9y@localhost:5432/postgres -f db/seed.sql",
     "db:init": "psql postgresql://tom:a7466d9y@localhost:5432/postgres -f db/schema.sql"
   },

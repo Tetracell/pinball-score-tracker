@@ -10,7 +10,7 @@ export const Tables = ({ API }) => {
 
   React.useEffect(() => {
     axios.get(`${API}/tables`).then((res) => {
-      setTables(res.data.payload);
+      setTables(res.data);
     });
   }, []);
 

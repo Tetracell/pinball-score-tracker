@@ -6,6 +6,7 @@ const { newScore } = require("../queries/scores");
 
 //Routes
 
+
 scores.post("/new", async (req, res) => {
   console.log("Adding score");
   try {
