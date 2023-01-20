@@ -10,7 +10,6 @@ export const Tables = ({ API }) => {
 
   React.useEffect(() => {
     axios.get(`${API}/tables`).then((res) => {
-      console.log(res.data.payload)
       setTables(res.data.payload);
     });
   }, []);
@@ -19,7 +18,6 @@ export const Tables = ({ API }) => {
     <Box>
       <Grid container spacing={2}>
         {tables.map((table) => {
-          //console.log(table);
           return (
             <Grid item xl={2} s={5}>
               <div key={table.machineid} id="card">

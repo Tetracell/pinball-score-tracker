@@ -68,9 +68,11 @@ export const ShowTable = ({ API }) => {
           {table.designer !== "designer_placeholder" ? (
             <div id="designer">Designed by: {table.designer}</div>
           ) : null}
-          <div id="small-details">{table.type} | Players: {table.players} | Balls: {table.balls}</div>
+          <div id="small-details">
+            {table.type} | Players: {table.players} | Balls: {table.balls}
+          </div>
         </Grid>
-        {/* {topScores.map((score, index) => {
+        {topFour.map((score, index) => {
           const player = score.player;
           const playerScore = score.score;
           let colW;
@@ -92,52 +94,57 @@ export const ShowTable = ({ API }) => {
               <div id="score">{playerScore}</div>
             </Grid>
           );
-        })} */}
+        })}
         <Grid item xs={3} />
-        <Grid item xs={6} sx={{ "text-align": "center" }}>
-          <Typography
-            sx={{
-              paddingTop: "10px",
-              fontFamily: "monospace",
-              fontSize: "15px",
-              textDecoration: "underline",
-            }}
-          >
-            Other Scores
-          </Typography>
-          <div id="other-scores">
-            <Table>
-              <TableBody>
-                <TableRow id="columns">
-                  <TableCell
-                    sx={{ color: "white", textDecoration: "underline" }}
-                  >
-                    Initials
-                  </TableCell>
-                  <TableCell
-                    sx={{ color: "white", textDecoration: "underline" }}
-                  >
-                    Score
-                  </TableCell>
-                </TableRow>
-                {scores.map((score, index) => {
-                  if (index >= 4) { //I'd like to start AT 4 here - what can I do?
-                    return ( //React console complains of no return - but it's here.
-                      <TableRow>
-                        <TableCell id="other-initials">
-                          {playerSearch(score.player)[1]}
-                        </TableCell>
-                        <TableCell id="score">{score.score}</TableCell>
-                      </TableRow>
-                    );
-                  }
-                })}
-              </TableBody>
-            </Table>
-          </div>
-        </Grid>
+        {moreScores(scores)}
         <Grid item xs={3} />
       </Grid>
     </Box>
   );
+
+  function moreScores(scores) {
+    // Should this potentially be moved off into it's own component?
+    if (scores.length > 4) {
+      <Grid item xs={6} sx={{ "text-align": "center" }}>
+        <Typography
+          sx={{
+            paddingTop: "10px",
+            fontFamily: "monospace",
+            fontSize: "15px",
+            textDecoration: "underline",
+          }}
+        >
+          Other Scores
+        </Typography>
+        <div id="other-scores">
+          <Table>
+            <TableBody>
+              <TableRow id="columns">
+                <TableCell sx={{ color: "white", textDecoration: "underline" }}>
+                  Initials
+                </TableCell>
+                <TableCell sx={{ color: "white", textDecoration: "underline" }}>
+                  Score
+                </TableCell>
+              </TableRow>
+              {scores.map((score, index) => {
+                if (index >= 4) {
+                  //I'd like to start AT 4 here - what can I do?
+                  return (
+                    //React console complains of no return - but it's here.
+                    <TableRow>
+                      <TableCell id="other-initials">
+                        {playerSearch(score.player)[1]}
+                      </TableCell>
+                      <TableCell id="score">{score.score}</TableCell>
+                    </TableRow>
+                  );
+                }
+              })}
+            </TableBody>
+          </Table>
+        </div>
+      </Grid>;
+    }
+  }
 };
