@@ -69,7 +69,6 @@ export const ShowTable = ({ API }) => {
     </Box>
   );
 
-  
   function playerSearch(id) {
     let foundPlayer = [];
     players.forEach((player) => {
@@ -80,9 +79,9 @@ export const ShowTable = ({ API }) => {
     });
     return foundPlayer;
   }
-  
+
   /** Displays the top four scores (grand champion, 1st, 2nd, 3rd)
-   * @param {array} topFour - The top four scores, w/ attached player ID's
+   * @param {object} topFour - The top four scores, w/ attached player ID's
    */
   function topScores(topFour) {
     // Going to be responsible for displaying the top 4 scores for the machine
@@ -111,9 +110,9 @@ export const ShowTable = ({ API }) => {
       );
     });
   }
-  /** Displays all other high scores submitted by players. Only shows
-   * one score per player.
-   * @param {array} scores - All other high scores starting after
+  /** Displays all other high scores submitted by players. Will eventually
+   * only display one score per player (their highest recorded)
+   * @param {object} scores - All other high scores starting after
    * the third place score
    */
   function moreScores(scores) {

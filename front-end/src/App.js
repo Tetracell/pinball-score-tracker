@@ -7,6 +7,7 @@ import { Home } from "./Components/Home";
 import { Tables } from "./Components/Tables";
 import { Players } from "./Components/Players";
 import { ShowTable } from "./Components/ShowTable";
+import { TvDisplay } from "./Components/TvDisplay";
 //import { ShowPlayer } from "./Components/ShowPlayer";
 //import { AddPlayerDrawer } from "./Components/AddPlayerDrawer";
 import("./App.css");
@@ -23,6 +24,7 @@ function App() {
         <Route path="/tables" element={<Tables API={API} />} />
         <Route path="/players" element={<Players API={API} />} />
         <Route path="/tables/:machineid" element={<ShowTable API={API} />} />
+        <Route path="/tv-mode" element={<TvDisplay API={API} />} />
       </Routes>
     </div>
   );
