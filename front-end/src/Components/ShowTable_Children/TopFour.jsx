@@ -1,6 +1,10 @@
 import React from "react";
 import { Grid } from "@mui/material";
 
+// Todo
+// - Move the playerSearch function into a helper functions file (don't forget to export),
+//  and bring into here to help with component / code cleanup
+
 export const TopFour = ({ topFourScores, titles }) => {
   return topFourScores.map((score, index) => {
     const player = score.player;

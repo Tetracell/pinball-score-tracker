@@ -35,7 +35,8 @@ export const ShowTable = ({ API }) => {
     axios.get(`${API}/players`).then((res) => {
       setPlayers(res.data.payload);
     });
-  }, [API, machineid]);
+    /* eslint-disable-next-line */
+  }, []);
 
   return (
     <Box>
@@ -140,11 +141,11 @@ export const ShowTable = ({ API }) => {
                   Score
                 </TableCell>
               </TableRow>
+              {/* eslint-disable-next-line */}
               {scores.map((score, index) => {
                 if (index >= 4) {
                   //I'd like to start AT 4 here - what can I do?
                   return (
-                    //React console complains of no return - but it's here.
                     <TableRow>
                       <TableCell id="other-initials">
                         {playerSearch(score.player)[1]}
