@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import "../styles/AddScoreDrawer.css";
 
 import {
   Button,
@@ -18,7 +19,6 @@ export const AddScoreDrawer = () => {
   const [visible, setVisible] = React.useState(false);
   const [players, setPlayers] = React.useState([{}]);
   const [tables, setTables] = React.useState([{}]);
-
   const [newScore, setNewScore] = React.useState({
     score: "",
     player: "",
@@ -33,7 +33,6 @@ export const AddScoreDrawer = () => {
       setPlayers(res.data.payload);
     });
   };
-
   const handleSubmit = (e) => {
     if (!newScore.score || !newScore.machine || !newScore.player) {
       alert("Please make sure all fields are filled before submitting");
@@ -41,11 +40,9 @@ export const AddScoreDrawer = () => {
     }
     addScore();
   };
-
   const handleClose = () => {
     setVisible(false);
   };
-
   const handleChangeScore = (e) => {
     setNewScore({ ...newScore, score: e.target.value });
   };
@@ -55,7 +52,6 @@ export const AddScoreDrawer = () => {
   const handleChangePlayer = (e) => {
     setNewScore({ ...newScore, player: e.target.value });
   };
-
   const addScore = () => {
     axios
       .post(`${API}/scores/new`, newScore)
@@ -136,7 +132,6 @@ export const AddScoreDrawer = () => {
       </>
     );
   }
-
   function chooseTable() {
     return (
       <>
@@ -158,7 +153,6 @@ export const AddScoreDrawer = () => {
       </>
     );
   }
-
   function enterScore() {
     return (
       <>
