@@ -19,6 +19,7 @@ export const ShowTable = ({ API }) => {
     "Second Place",
     "Third Place",
   ];
+  const emojis = ["👑", "🥇", "🥈", "🥉"];
   const [table, setTable] = React.useState({});
   const [topFour, setTopFour] = React.useState([{}]);
   const [players, setPlayers] = React.useState([{}]);
@@ -104,7 +105,11 @@ export const ShowTable = ({ API }) => {
             paddingTop: "5px",
           }}
         >
-          <strong>{titles[index]}</strong>
+          <strong>
+            {emojis[index]}
+            {titles[index]}
+            {emojis[index]}
+          </strong>
           <div id="top-initials">{playerSearch(player)[1]}</div>
           <div id="score">{playerScore}</div>
         </Grid>
