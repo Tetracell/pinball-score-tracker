@@ -1,4 +1,10 @@
-# PERN Final Project Template
+# Welcome 
+
+
+
+
+
+<!-- # PERN Final Project Template
 
 - select `use this template`
 - clone this repo
@@ -168,4 +174,4 @@ The content of the `_redirects` file should be
 /* /index.html 200
 ```
 
-[More info](https://www.netlify.com/blog/2016/07/22/deploy-react-apps-in-less-than-30-seconds/#main)
+[More info](https://www.netlify.com/blog/2016/07/22/deploy-react-apps-in-less-than-30-seconds/#main) -->

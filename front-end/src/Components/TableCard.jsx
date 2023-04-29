@@ -22,7 +22,6 @@ export const TableCard = ({ table, API }) => {
 
   React.useEffect(() => {
     singleTable(table);
-    //console.log(score);
   }, []);
 
   return (
@@ -56,7 +55,7 @@ export const TableCard = ({ table, API }) => {
             Players: {table.players} | Balls: {table.balls}
           </Typography>
           <Typography
-            sx={{ fontSize: 14, color: "white", fontFamily: "squad" }}
+            sx={{ fontSize: 14, color: "#ff00e8", fontFamily: "squad" }}
           >
             High Score : {score.score}
           </Typography>

@@ -12,7 +12,7 @@ export const Tables = ({ API }) => {
     axios.get(`${API}/tables`).then((res) => {
       setTables(res.data.payload);
     });
-  }, []);
+  }, [API]);
 
   return (
     <Box>
