@@ -5,9 +5,9 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "sudo npx nodemon server.js",
-    "db:seed": "psql postgresql://tom:a7466d9y@localhost:5432/postgres -f db/seed.sql",
-    "db:init": "psql postgresql://tom:a7466d9y@localhost:5432/postgres -f db/schema.sql"
+    "start": "nodemon server.js",
+    "db:seed": "psql postgresql://dbguest:EnterTheSanctum@tetracell.asuscomm.com:5432/postgres -f db/seed.sql",
+    "db:init": "psql postgresql://dbguest:EnterTheSanctum@tetracell.asuscomm.com:5432/postgres -f db/schema.sql"
   },
   "author": "",
   "license": "ISC",
@@ -15,6 +15,7 @@
     "cors": "^2.8.5",
     "dotenv": "^14.3.0",
     "express": "^4.17.2",
+    "nodemon": "^2.0.22",
     "pg-promise": "^10.11.1",
     "react-scripts": "5.0.0"
   }
