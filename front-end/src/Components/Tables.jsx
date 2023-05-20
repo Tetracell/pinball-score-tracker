@@ -19,7 +19,7 @@ export const Tables = ({ API }) => {
       <Grid container spacing={1}>
         {tables.map((table) => {
           return (
-            <Grid item xl={2} s={5}>
+            <Grid item xl={'auto'} s={'auto'}>
               <div key={table.machineid} id="card">
                 <TableCard table={table} API={API} />
               </div>
