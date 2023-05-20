@@ -12,7 +12,7 @@ app.use(express.json()); // Parse incoming JSON
 // Add headers before the routes are defined
 app.use(function (req, res, next) {
   // Website you wish to allow to connect
-  res.setHeader('Access-Control-Allow-Origin', 'http://192.168.50.239:3333');
+  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3333');
 
   // Request methods you wish to allow
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
