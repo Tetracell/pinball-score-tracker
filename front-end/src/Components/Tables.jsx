@@ -16,7 +16,7 @@ export const Tables = ({ API }) => {
 
   return (
     <Box>
-      <Grid container spacing={2}>
+      <Grid container spacing={1}>
         {tables.map((table) => {
           return (
             <Grid item xl={2} s={5}>
