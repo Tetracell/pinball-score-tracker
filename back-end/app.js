@@ -29,6 +29,7 @@ app.use(express.json()); // Parse incoming JSON
 // });
 
 // ROUTES
+
 app.get("/", (req, res) => {
   res.status(200).json({ message: "Welcome to the Sanctum score database" });
 });
