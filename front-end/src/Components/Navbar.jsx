@@ -106,18 +106,21 @@ export const Navbar = () => {
                 display: { xs: "block", md: "none" },
               }}
             >
-              <Button
-                sx={{
-                  textAlign: "center",
-                  justifyContent: "center"
-                }}
-                onClick={() => {
-                  navigate("/tables");
-                  handleCloseNavMenu();
-                }}
-              >
+              <MenuItem>
+                <Button
+                  color="inherit"
+                  sx={{
+                    textAlign: "center",
+                    justifyContent: "center",
+                  }}
+                  onClick={() => {
+                    navigate("/tables");
+                    handleCloseNavMenu();
+                  }}
+                >
                   Tables
-              </Button>
+                </Button>
+              </MenuItem>
               <MenuItem
                 onClick={() => {
                   handleCloseNavMenu();
