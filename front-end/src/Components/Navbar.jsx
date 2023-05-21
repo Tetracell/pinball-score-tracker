@@ -12,19 +12,17 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-import AdbIcon from "@mui/icons-material/Adb";
 
 import { AddPlayerDrawer } from "./AddPlayerDrawer";
 import { AddScoreDrawer } from "./AddScoreDrawer";
 const sanctumLogo = require("../13082625_805039766292952_7729151040459603827_n.png");
 
-const pages = ["Products", "Pricing", "Blog"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 export const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
-  const navigate = useNavigate;
+  const navigate = useNavigate();
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -108,11 +106,37 @@ export const Navbar = () => {
                 display: { xs: "block", md: "none" },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
+              <Button
+                sx={{
+                  textAlign: "center",
+                  justifyContent: "center"
+                }}
+                onClick={() => {
+                  navigate("/tables");
+                  handleCloseNavMenu();
+                }}
+              >
+                  Tables
+              </Button>
+              <MenuItem
+                onClick={() => {
+                  handleCloseNavMenu();
+                }}
+              >
+                <AddPlayerDrawer />
+              </MenuItem>
+              <MenuItem
+                onClick={() => {
+                  handleCloseNavMenu();
+                }}
+              >
+                <AddScoreDrawer />
+              </MenuItem>
+              {/* {pages.map((page) => (
+                <MenuItem key={page} onClick={() => handleMenuNav(page)}>
                   <Typography textAlign="center">{page}</Typography>
                 </MenuItem>
-              ))}
+              ))} */}
             </Menu>
           </Box>
           <Box sx={{ display: { xs: "flex", md: "none" }, mr: 1 }}>
@@ -138,15 +162,14 @@ export const Navbar = () => {
             Scores
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
-              >
-                {page}
-              </Button>
-            ))}
+            <Button
+              onClick={() => {
+                navigate("/tables");
+              }}
+              sx={{ my: 2, color: "white", display: "block" }}
+            >
+              Tables
+            </Button>
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
