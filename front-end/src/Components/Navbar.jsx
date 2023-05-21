@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useNavigate } from "react-router-dom";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -15,6 +16,7 @@ import AdbIcon from "@mui/icons-material/Adb";
 
 import { AddPlayerDrawer } from "./AddPlayerDrawer";
 import { AddScoreDrawer } from "./AddScoreDrawer";
+const sanctumLogo = require("../13082625_805039766292952_7729151040459603827_n.png");
 
 const pages = ["Products", "Pricing", "Blog"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
@@ -22,6 +24,7 @@ const settings = ["Profile", "Account", "Dashboard", "Logout"];
 export const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const navigate = useNavigate;
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -46,7 +49,18 @@ export const Navbar = () => {
     >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
+          <IconButton
+            size="medium"
+            edge="start"
+            onClick={() => {
+              navigate("/");
+            }}
+          >
+            <Container sx={{ display: { xs: "none", md: "flex" }, mr: 1 }}>
+              <img src={sanctumLogo} alt="logo" height={80} width={80} />
+            </Container>
+          </IconButton>
+          {/* <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} /> */}
           <Typography
             variant="h6"
             noWrap
@@ -62,7 +76,7 @@ export const Navbar = () => {
               textDecoration: "none",
             }}
           >
-            LOGO
+            Sanctum Score Tracker
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -101,7 +115,10 @@ export const Navbar = () => {
               ))}
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
+          <Box sx={{ display: { xs: "flex", md: "none" }, mr: 1 }}>
+            <img src={sanctumLogo} alt="logo" height={60} width={60} />
+          </Box>
+          {/* <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} /> */}
           <Typography
             variant="h5"
             noWrap
@@ -118,7 +135,7 @@ export const Navbar = () => {
               textDecoration: "none",
             }}
           >
-            LOGO
+            Scores
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
