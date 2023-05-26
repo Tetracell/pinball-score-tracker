@@ -55,7 +55,7 @@ export const TableCard = ({ table, API }) => {
             Players: {table.players} | Balls: {table.balls}
           </Typography>
           <Typography
-            sx={{ fontSize: 25, color: "#ff00e8", fontFamily: "gas" }}
+            sx={{ fontSize: 25, color: "orange", fontFamily: "gas" }}
           >
             High Score : {score.score}
           </Typography>
@@ -64,3 +64,5 @@ export const TableCard = ({ table, API }) => {
     </>
   );
 };
+
+//Former card score color : "#ff00e8"
