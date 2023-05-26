@@ -85,6 +85,7 @@ export const ShowTable = ({ API }) => {
   /** Displays the top four scores (grand champion, 1st, 2nd, 3rd)
    * @param {object} topFour - The top four scores, w/ attached player ID's
    */
+
   function topScores(topFour) {
     // Going to be responsible for displaying the top 4 scores for the machine
     // Should this potentially be moved off into it's own component?
@@ -116,11 +117,13 @@ export const ShowTable = ({ API }) => {
       );
     });
   }
+
   /** Displays all other high scores submitted by players. Will eventually
    * only display one score per player (their highest recorded)
    * @param {object} scores - All other high scores starting after
    * the third place score
    */
+  
   function moreScores(scores) {
     // Should this potentially be moved off into it's own component?
     if (scores.length > 4) {

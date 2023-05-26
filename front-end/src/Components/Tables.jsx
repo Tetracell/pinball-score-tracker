@@ -17,7 +17,7 @@ export const Tables = ({ API }) => {
   return (
     <Box
       sx={{
-        border: "1px solid yellow",
+        //border: "1px solid yellow",
         textAlign: "center",
       }}
     >
@@ -25,9 +25,9 @@ export const Tables = ({ API }) => {
         container
         spacing={1}
         alignItems="center"
-        justifyContent={"center"}
+        justifyContent="center"
         sx={{
-          border: "4px solid green",
+          //border: "4px solid green",
         }}
       >
         {tables.map((table) => {
