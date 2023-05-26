@@ -36,7 +36,7 @@ export const TableCard = ({ table, API }) => {
         className="table-card"
       >
         <CardContent>
-          <Typography sx={{ fontSize: 35, fontFamily:"squad" }}>
+          <Typography sx={{ fontSize: 40, fontFamily:"squad" }}>
             <Link to={`/tables/${table.machineid}`}>{table.name}</Link>
           </Typography>
           <Typography sx={{ mb: 1, fontSize: 20, color: "gold" }}>
@@ -55,7 +55,7 @@ export const TableCard = ({ table, API }) => {
             Players: {table.players} | Balls: {table.balls}
           </Typography>
           <Typography
-            sx={{ fontSize: 25, color: "#ff00e8", fontFamily: "squad" }}
+            sx={{ fontSize: 25, color: "#ff00e8", fontFamily: "gas" }}
           >
             High Score : {score.score}
           </Typography>

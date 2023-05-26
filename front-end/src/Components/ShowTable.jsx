@@ -104,6 +104,7 @@ export const ShowTable = ({ API }) => {
             border: "1px dotted green",
             borderRadius: "10px",
             paddingTop: "5px",
+            fontSize:"12px"
           }}
         >
           <strong>
@@ -123,7 +124,7 @@ export const ShowTable = ({ API }) => {
    * @param {object} scores - All other high scores starting after
    * the third place score
    */
-  
+
   function moreScores(scores) {
     // Should this potentially be moved off into it's own component?
     if (scores.length > 4) {
