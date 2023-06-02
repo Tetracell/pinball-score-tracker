@@ -75,12 +75,7 @@ export const AddScoreDrawer = () => {
       >
         Add Score
       </Button>
-      <Drawer anchor="right" open={visible} onClose={handleClose} sx={{backgroundColor: "#151615"}}>
-        {/* Adding the sx override here for the background color seems to be the only way to fix the whitespace problem
-        at the bottom of the drawer in the following cases :
-        1) On mobile
-        2) On desktop, after build.
-        It should be noted that this problem does NOT show up in any browser on OSX. */}
+      <Drawer anchor="right" open={visible} onClose={handleClose}>
         <Box
           p={2}
           width="250px"
