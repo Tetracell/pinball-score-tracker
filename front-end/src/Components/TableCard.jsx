@@ -22,16 +22,6 @@ export const TableCard = ({ table, API }) => {
       );
   };
 
-  const tableData = (table) => {
-    if (table.topscores[0]) {
-      setHiScore(table.topscores[0])
-      playerData(table.topscores[0])
-    } else {
-      setHiScore({score:0})
-      setPlayer("SAV")
-    }
-  }
-
   const playerData = (table) => {
     axios
         .get(`${API}/players/${table.player}`)
@@ -39,6 +29,16 @@ export const TableCard = ({ table, API }) => {
           setPlayer(res.data.payload.initials)
         )
   }
+
+  const tableData = (table) => {
+    if (table.topscores[0]) {
+      setHiScore(table.topscores[0])
+      playerData(table.topscores[0])
+    } else {
+      setPlayer("PLACE")
+      setHiScore({score:"HOLDER"})
+    }
+  }  
 
   React.useEffect(() => {
     singleTable(table);
