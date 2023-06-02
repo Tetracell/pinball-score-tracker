@@ -96,13 +96,6 @@ export const AddScoreDrawer = () => {
           {enterScore()}
           <Button type="submit">Submit Score</Button>
           <Button onClick={handleClose}>Close Window</Button>
-          <Button
-            onClick={() => {
-              console.log(newScore);
-            }}
-          >
-            DEBUG BUTTON
-          </Button>
         </Box>
       </Drawer>
     </>
