@@ -120,7 +120,8 @@ export const AddScoreDrawer = () => {
         <Select
           labelId="player-select-menu"
           id="player"
-          sx={{ color: "lightblue" }}
+          variant="outlined"
+          sx={{ color: "lightblue", outline:"blue" }}
           onChange={handleChangePlayer}
           value={newScore.player}
         >

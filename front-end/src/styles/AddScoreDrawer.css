@@ -5,6 +5,16 @@
   background-color: #151615;
 } */
 
+#player {
+  background-color :slategray;
+  border: 3px solid green;
+}
 
+#machine {
+  background-color: slategray;
+  border: 3px solid green;
+}
 
-
+#score {
+  border: 3px solid green;
+}

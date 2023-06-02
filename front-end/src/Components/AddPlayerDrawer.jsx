@@ -1,13 +1,9 @@
 import React from "react";
 import axios from "axios";
 
-import {
-  Button,
-  Typography,
-  Drawer,
-  Box,
-  TextField,
-} from "@mui/material";
+import { Button, Typography, Drawer, Box, TextField } from "@mui/material";
+
+import "../styles/AddPlayerDrawer.css"
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -58,9 +54,19 @@ export const AddPlayerDrawer = () => {
       <Button color="inherit" onClick={() => setVisible(true)}>
         Create Player
       </Button>
-      <Drawer temporary anchor="left" open={visible} onClose={handleClose}>
+      <Drawer
+        temporary
+        anchor="left"
+        open={visible}
+        onClose={handleClose}
+        PaperProps={{
+          sx: {
+            backgroundColor: "#151615",
+          },
+        }}
+      >
         <Box p={2} width="250px" textAlign="center" component="form">
-          <Typography variant="h5">Add a Player</Typography>
+          <Typography variant="h5" color={"white"}>Add a Player</Typography>
           <TextField
             id="initials"
             label="Initials (3 characters)"
