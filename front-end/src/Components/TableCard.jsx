@@ -8,17 +8,37 @@ import "../styles/cards.css";
 import axios from "axios";
 
 export const TableCard = ({ table, API }) => {
-  const [score, setScore] = React.useState(0);
+  const [hiScore, setHiScore] = React.useState(0);
+  const [player, setPlayer] = React.useState("");
 
   const singleTable = (table) => {
     axios
       .get(`${API}/tables/${table.machineid}`)
       .then((res) =>
-        res.data.topscores[0]
-          ? setScore(res.data.topscores[0])
-          : setScore({ score: 0 })
+        // res.data.topscores[0]
+        //   ? setScore(res.data.topscores[0])
+        //   : setScore({ score: 0 })
+        tableData(res.data)
       );
   };
+
+  const tableData = (table) => {
+    if (table.topscores[0]) {
+      setHiScore(table.topscores[0])
+      playerData(table.topscores[0])
+    } else {
+      setHiScore({score:0})
+      setPlayer("SAV")
+    }
+  }
+
+  const playerData = (table) => {
+    axios
+        .get(`${API}/players/${table.player}`)
+        .then((res) =>
+          setPlayer(res.data.payload.initials)
+        )
+  }
 
   React.useEffect(() => {
     singleTable(table);
@@ -36,7 +56,7 @@ export const TableCard = ({ table, API }) => {
         className="table-card"
       >
         <CardContent>
-          <Typography sx={{ fontSize: 40, fontFamily:"squad" }}>
+          <Typography sx={{ fontSize: 40, fontFamily: "squad" }}>
             <Link to={`/tables/${table.machineid}`}>{table.name}</Link>
           </Typography>
           <Typography sx={{ mb: 1, fontSize: 20, color: "gold" }}>
@@ -54,10 +74,8 @@ export const TableCard = ({ table, API }) => {
           <Typography sx={{ fontSize: 15, color: "antiquewhite" }}>
             Players: {table.players} | Balls: {table.balls}
           </Typography>
-          <Typography
-            sx={{ fontSize: 25, color: "orange", fontFamily: "gas" }}
-          >
-            High Score : {score.score}
+          <Typography sx={{ fontSize: 25, color: "orange", fontFamily: "gas" }}>
+            High Score : <br/>{player} - {hiScore.score}
           </Typography>
         </CardContent>
       </Card>
