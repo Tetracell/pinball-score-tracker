@@ -28,18 +28,18 @@ export const TableCard = ({ table, API }) => {
     <>
       <Card
         sx={{
-          maxWidth: 175,
-          minWidth: 175,
+          maxWidth: 300,
+          minWidth: 300,
           backgroundColor: "#262624",
           marginTop: "5px",
         }}
         className="table-card"
       >
         <CardContent>
-          <Typography sx={{ fontSize: 20 }}>
+          <Typography sx={{ fontSize: 40, fontFamily:"squad" }}>
             <Link to={`/tables/${table.machineid}`}>{table.name}</Link>
           </Typography>
-          <Typography sx={{ mb: 1, fontSize: 12, color: "gold" }}>
+          <Typography sx={{ mb: 1, fontSize: 20, color: "gold" }}>
             {table.designer !== "designer_placeholder"
               ? table.designer
               : "Designer Unknown"}
@@ -51,11 +51,11 @@ export const TableCard = ({ table, API }) => {
             component="div"
             color="text.secondary"
           ></Typography>
-          <Typography sx={{ fontSize: 10, color: "antiquewhite" }}>
+          <Typography sx={{ fontSize: 15, color: "antiquewhite" }}>
             Players: {table.players} | Balls: {table.balls}
           </Typography>
           <Typography
-            sx={{ fontSize: 14, color: "#ff00e8", fontFamily: "squad" }}
+            sx={{ fontSize: 25, color: "orange", fontFamily: "gas" }}
           >
             High Score : {score.score}
           </Typography>
@@ -64,3 +64,5 @@ export const TableCard = ({ table, API }) => {
     </>
   );
 };
+
+//Former card score color : "#ff00e8"

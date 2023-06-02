@@ -1,5 +1,23 @@
 # Welcome 
 
+.env layouts
+
+# Backend
+PG_HOST=
+
+PG_PORT=
+
+PG_DATABASE=
+
+PG_USER=
+
+PG_PASSWORD=
+
+PORT=
+
+
+## Frontend
+REACT_APP_API_URL=
 
 
 

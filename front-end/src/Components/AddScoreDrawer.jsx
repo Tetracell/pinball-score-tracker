@@ -75,7 +75,18 @@ export const AddScoreDrawer = () => {
       >
         Add Score
       </Button>
-      <Drawer anchor="right" open={visible} onClose={handleClose}>
+      <Drawer
+        anchor="right"
+        open={visible}
+        onClose={handleClose}
+        id="scoreDrawer"
+        PaperProps={{
+          sx: {
+            backgroundColor: "#151615"
+          }
+        }}
+        // https://stackoverflow.com/questions/69517179/changing-color-of-drawer-in-mui-v5
+      >
         <Box
           p={2}
           width="250px"
@@ -83,7 +94,6 @@ export const AddScoreDrawer = () => {
           component="form"
           onSubmit={handleSubmit}
           color="white"
-          backgroundColor="#151615"
         >
           <Typography variant="h5" sx={{ marginBottom: "5px" }}>
             Add New Score
@@ -96,13 +106,6 @@ export const AddScoreDrawer = () => {
           {enterScore()}
           <Button type="submit">Submit Score</Button>
           <Button onClick={handleClose}>Close Window</Button>
-          <Button
-            onClick={() => {
-              console.log(newScore);
-            }}
-          >
-            DEBUG BUTTON
-          </Button>
         </Box>
       </Drawer>
     </>
@@ -117,7 +120,8 @@ export const AddScoreDrawer = () => {
         <Select
           labelId="player-select-menu"
           id="player"
-          sx={{ color: "lightblue" }}
+          variant="outlined"
+          sx={{ color: "lightblue", outline:"blue" }}
           onChange={handleChangePlayer}
           value={newScore.player}
         >

@@ -15,11 +15,24 @@ export const Tables = ({ API }) => {
   }, [API]);
 
   return (
-    <Box>
-      <Grid container spacing={2}>
+    <Box
+      sx={{
+        //border: "1px solid yellow",
+        textAlign: "center",
+      }}
+    >
+      <Grid
+        container
+        spacing={1}
+        alignItems="center"
+        justifyContent="center"
+        sx={{
+          //border: "4px solid green",
+        }}
+      >
         {tables.map((table) => {
           return (
-            <Grid item xl={2} s={5}>
+            <Grid item>
               <div key={table.machineid} id="card">
                 <TableCard table={table} API={API} />
               </div>

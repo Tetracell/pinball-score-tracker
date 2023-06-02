@@ -14,7 +14,7 @@
 #title {
   padding-top: 10px;
   text-align: center;
-  font-size:60px;
+  font-size:40px;
   color: lightgreen;
   text-decoration: none;
   font-family: "Squad";
@@ -46,9 +46,9 @@
 }
 
 #score {
-  font-family: "Squad";
+  font-family: "Gas";
   color: orange;
-  font-size: 35px;
+  font-size: 22px;
 }
 
 #designer {
