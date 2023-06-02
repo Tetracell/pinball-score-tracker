@@ -1,12 +1,15 @@
 import React from 'react'
 
+
+const dearLeader = require("../dear_leader.jpeg")
+
 export const Home = () => {
   return (
     <div>
-        This is the landing page of the site.
-        I want to have maybe a carousel going across with photos from the
-        Sanctum, or maybe even a scrolling list of tables and their top4 scores.
-        Probably a navbar at the top here - a sidebar?
+        <img src={dearLeader} alt="Dear Leader" height={600}></img>
+        To begin, please choose one of the options on the top of
+        the Navigation bar, or if on mobile, press the hamburger
+        menu in the top left.
     </div>
   )
 }
