@@ -83,7 +83,7 @@ export const AddScoreDrawer = () => {
           component="form"
           onSubmit={handleSubmit}
           color="white"
-          backgroundColor="#151615"
+          // backgroundColor="#151615"
         >
           <Typography variant="h5" sx={{ marginBottom: "5px" }}>
             Add New Score
