@@ -58,7 +58,6 @@ export const Navbar = () => {
               <img src={sanctumLogo} alt="logo" height={80} width={80} />
             </Container>
           </IconButton>
-          {/* <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} /> */}
           <Typography
             variant="h6"
             noWrap
@@ -135,17 +134,11 @@ export const Navbar = () => {
               >
                 <AddScoreDrawer />
               </MenuItem>
-              {/* {pages.map((page) => (
-                <MenuItem key={page} onClick={() => handleMenuNav(page)}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))} */}
             </Menu>
           </Box>
           <Box sx={{ display: { xs: "flex", md: "none" }, mr: 1 }}>
             <img src={sanctumLogo} alt="logo" height={60} width={60} />
           </Box>
-          {/* <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} /> */}
           <Typography
             variant="h5"
             noWrap
@@ -162,7 +155,7 @@ export const Navbar = () => {
               textDecoration: "none",
             }}
           >
-            Scores
+            {/* Scores */}
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             <Button
@@ -173,7 +166,14 @@ export const Navbar = () => {
             >
               Tables
             </Button>
+            <AddPlayerDrawer />
+            <AddScoreDrawer />
           </Box>
+
+          {/* 
+          This code is for the user icon / menu in the top left of the
+          navbar. As it's not in use yet, I'm removing it to stop any potential
+          problems of people clicking on it.
 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
@@ -203,80 +203,9 @@ export const Navbar = () => {
                 </MenuItem>
               ))}
             </Menu>
-          </Box>
+          </Box> */}
         </Toolbar>
       </Container>
     </AppBar>
   );
 };
-
-// import React from "react";
-
-// import { useNavigate } from "react-router-dom";
-// import "../styles/nav.css";
-
-// //MUI
-// import {
-//   AppBar,
-//   Box,
-//   Typography,
-//   Menu,
-//   MenuIcon,
-//   Container,
-//   Tooltip,
-//   MenuItem,
-//   Toolbar,
-//   IconButton,
-//   Stack,
-//   Button,
-// } from "@mui/material";
-
-// import { AddPlayerDrawer } from "./AddPlayerDrawer"; ✓
-// import { AddScoreDrawer } from "./AddScoreDrawer"; ✓
-// const sanctumLogo = require("../13082625_805039766292952_7729151040459603827_n.png");
-
-// export const Navbar = () => {
-//   const navigate = useNavigate();
-//   return (
-//     <>
-//       <AppBar
-//         className="navbar"
-//         position="sticky" ✓
-//         sx={{ backgroundColor: "black" }} ✓
-//       >
-//         <Toolbar>
-//           <IconButton
-//             size="medium"
-//             edge="start"
-//             onClick={() => {
-//               navigate("/");
-//             }}
-//           >
-//             <img src={sanctumLogo} alt="logo" height={80} width={80} />
-//           </IconButton>
-
-//           <Stack direction="row" spacing={2}>
-//             <Button
-//               color="inherit"
-//               onClick={() => {
-//                 navigate("/tables");
-//               }}
-//             >
-//               Tables
-//             </Button>
-//             <Button
-//               color="inherit"
-//               onClick={() => {
-//                 navigate("/players");
-//               }}
-//             >
-//               Players
-//             </Button>
-//             <AddPlayerDrawer onClick={console.log("clicked")}/>
-//             <AddScoreDrawer/>
-//           </Stack>
-//         </Toolbar>
-//       </AppBar>
-//     </>
-//   );
-// };
