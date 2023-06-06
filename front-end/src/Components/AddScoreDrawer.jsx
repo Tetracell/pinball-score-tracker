@@ -67,6 +67,7 @@ export const AddScoreDrawer = () => {
       .catch((error) => {
         console.log(error);
       });
+    alert("Score submitted!");
     setVisible(false);
   };
 
