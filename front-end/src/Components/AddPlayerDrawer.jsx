@@ -3,7 +3,7 @@ import axios from "axios";
 
 import { Button, Typography, Drawer, Box, TextField } from "@mui/material";
 
-import "../styles/AddPlayerDrawer.css"
+import "../styles/AddPlayerDrawer.css";
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -66,7 +66,9 @@ export const AddPlayerDrawer = () => {
         }}
       >
         <Box p={2} width="250px" textAlign="center" component="form">
-          <Typography variant="h5" color={"white"}>Add a Player</Typography>
+          <Typography variant="h5" color={"white"}>
+            Add a Player
+          </Typography>
           <TextField
             id="initials"
             label="Initials (3 characters)"
@@ -84,7 +86,11 @@ export const AddPlayerDrawer = () => {
             onChange={handleChange}
             required
           />
+          <br />
+          <br />
           <Button onClick={handleSubmit}>Add Player</Button>
+          <br />
+          <br />
           <Button onClick={handleClose}>Close Window</Button>
         </Box>
       </Drawer>

@@ -90,9 +90,9 @@ export const AddScoreDrawer = () => {
         PaperProps={{
           sx: {
             backgroundColor: "#151615",
+            // https://stackoverflow.com/questions/69517179/changing-color-of-drawer-in-mui-v5
           },
         }}
-        // https://stackoverflow.com/questions/69517179/changing-color-of-drawer-in-mui-v5
       >
         <Box
           p={2}
@@ -112,9 +112,13 @@ export const AddScoreDrawer = () => {
           <br />
           <br />
           {enterScore()}
+          <br />
+          <br />
           <Button type="submit" id="submit-score-button">
             Submit Score
           </Button>
+          <br />
+          <br />
           <Button onClick={handleClose}>Close Window</Button>
         </Box>
       </Drawer>
