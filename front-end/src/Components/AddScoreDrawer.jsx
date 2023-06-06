@@ -33,6 +33,7 @@ export const AddScoreDrawer = () => {
       setPlayers(res.data.payload);
     });
   };
+
   const handleSubmit = (e) => {
     if (!newScore.score || !newScore.machine || !newScore.player) {
       alert("Please make sure all fields are filled before submitting");
@@ -40,18 +41,23 @@ export const AddScoreDrawer = () => {
     }
     addScore();
   };
+
   const handleClose = () => {
     setVisible(false);
   };
+
   const handleChangeScore = (e) => {
     setNewScore({ ...newScore, score: e.target.value });
   };
+
   const handleChangeTable = (e) => {
     setNewScore({ ...newScore, machine: e.target.value });
   };
+
   const handleChangePlayer = (e) => {
     setNewScore({ ...newScore, player: e.target.value });
   };
+
   const addScore = () => {
     axios
       .post(`${API}/scores/new`, newScore)
@@ -82,8 +88,8 @@ export const AddScoreDrawer = () => {
         id="scoreDrawer"
         PaperProps={{
           sx: {
-            backgroundColor: "#151615"
-          }
+            backgroundColor: "#151615",
+          },
         }}
         // https://stackoverflow.com/questions/69517179/changing-color-of-drawer-in-mui-v5
       >
@@ -105,12 +111,19 @@ export const AddScoreDrawer = () => {
           <br />
           <br />
           {enterScore()}
-          <Button type="submit" sx={{cursor:'pointer'}}>Submit Score</Button>
+          <Button type="submit" id="submit-score-button">
+            Submit Score
+          </Button>
           <Button onClick={handleClose}>Close Window</Button>
         </Box>
       </Drawer>
     </>
   );
+
+  //Current issue with submitting scores on iOS devices : unsure if this is a problem
+  // with React or MUI, but the submit button doesn't seem to properly fire an event
+  // unless there is a 'cursor: pointer' css style attached to the button, making
+  // the browser realize that a button has been pressed.
 
   function choosePlayer() {
     return (
@@ -122,7 +135,7 @@ export const AddScoreDrawer = () => {
           labelId="player-select-menu"
           id="player"
           variant="outlined"
-          sx={{ color: "lightblue", outline:"blue" }}
+          sx={{ color: "lightblue", outline: "blue" }}
           onChange={handleChangePlayer}
           value={newScore.player}
         >
@@ -137,6 +150,7 @@ export const AddScoreDrawer = () => {
       </>
     );
   }
+
   function chooseTable() {
     return (
       <>
@@ -158,6 +172,7 @@ export const AddScoreDrawer = () => {
       </>
     );
   }
+
   function enterScore() {
     return (
       <>
