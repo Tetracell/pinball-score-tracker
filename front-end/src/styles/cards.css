@@ -1,6 +1,9 @@
 a {
   color: greenyellow;
   text-decoration: none;
+  text-shadow:
+  0 0 3px seagreen,
+  0 0 5px seagreen;
 }
 
 #scorefield {
@@ -9,7 +12,7 @@ a {
   font-family: "gas";
   text-shadow:
     0 0 4px orangered,
-    0 0 8px orangered;
+    0 0 8px orange;
     /* 0 0 21px orange, */
     /* 0 0 42px orange, */
     /* 0 0 80px orange; */

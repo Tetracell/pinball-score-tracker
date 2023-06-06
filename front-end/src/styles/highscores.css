@@ -55,6 +55,9 @@
   font-family: "Gas";
   color: orange;
   font-size: 22px;
+  text-shadow:
+    0 0 3px orangered,
+    0 0 5px orangered;
 }
 
 #designer {
