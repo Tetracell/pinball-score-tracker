@@ -3,4 +3,19 @@ a {
   text-decoration: none;
 }
 
+#scorefield {
+  color: orange;
+  font-size: 30px;
+  font-family: "gas";
+  text-shadow:
+    0 0 7px #d9a71e,
+    /* 0 0 10px #de9910, */
+    /* 0 0 21px orange, */
+    /* 0 0 42px orange, */
+    0 0 82px orange;
+    /* 0 0 92px orange, */
+    /* 0 0 102px orange, */
+    /* 0 0 151px orange; */
+
+}
 

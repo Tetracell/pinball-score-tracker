@@ -74,7 +74,7 @@ export const TableCard = ({ table, API }) => {
           <Typography sx={{ fontSize: 15, color: "antiquewhite" }}>
             Players: {table.players} | Balls: {table.balls}
           </Typography>
-          <Typography sx={{ fontSize: 25, color: "orange", fontFamily: "gas" }}>
+          <Typography id="scorefield">
             High Score : <br/>{player} - {hiScore.score}
           </Typography>
         </CardContent>
