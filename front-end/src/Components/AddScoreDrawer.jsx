@@ -100,11 +100,12 @@ export const AddScoreDrawer = () => {
           </Typography>
           {choosePlayer()}
           <br />
+          <br />
           {chooseTable()}
           <br />
           <br />
           {enterScore()}
-          <Button type="submit">Submit Score</Button>
+          <Button type="submit" sx={{cursor:'pointer'}}>Submit Score</Button>
           <Button onClick={handleClose}>Close Window</Button>
         </Box>
       </Drawer>
