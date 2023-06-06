@@ -19,6 +19,9 @@
   text-decoration: none;
   font-family: "Squad";
   font-weight: lighter;
+  text-shadow:
+    0 0 7px seagreen,
+    0 0 10px seagreen;
 }
 
 #details {
@@ -29,14 +32,17 @@
 
 #top-initials {
   font-family: "Gas";
-  color: orangered;
+  color: orange;
   font-size: 60px;
   padding-right: 4px;
+  text-shadow:
+    0 0 7px orangered,
+    0 0 10px orangered;
 }
 
 #other-initials {
   font-family: "Gas";
-  color: orangered;
+  color: orange;
   font-size: 40px;
 }
 
