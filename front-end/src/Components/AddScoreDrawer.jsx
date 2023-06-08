@@ -186,7 +186,7 @@ export const AddScoreDrawer = () => {
         </InputLabel>
         <TextField
           labelId="score-input-field"
-          id="score"
+          id="enter-score"
           type="number"
           onChange={handleChangeScore}
           value={newScore.score}

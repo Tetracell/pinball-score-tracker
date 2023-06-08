@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams } from "react-router";
 import axios from "axios";
-import "../fonts/Squad3DRegular-Yzaov.ttf";
+import "../fonts/Squad3DRegular-Yzaov.ttf"; // don't think i need to import this again here
 import "../styles/highscores.css";
 
 //MUI
@@ -15,9 +15,9 @@ import TableRow from "@mui/material/TableRow";
 export const ShowTable = ({ API }) => {
   const titles = [
     "Grand Champion",
-    "First Place",
-    "Second Place",
-    "Third Place",
+    "1st Place",
+    "2nd Place",
+    "3rd Place",
   ];
   const emojis = ["👑", "🥇", "🥈", "🥉"];
   const [table, setTable] = React.useState({});
@@ -46,8 +46,8 @@ export const ShowTable = ({ API }) => {
           item
           xs={12}
           sx={{
-            backgroundColor: "#23432a",
-            border: "1px dotted",
+            // backgroundColor: "#23432a",
+            // border: "1px dotted",
             borderColor: "greenyellow",
             borderRadius: "4px",
           }}
@@ -101,10 +101,9 @@ export const ShowTable = ({ API }) => {
           xs={colW}
           sx={{
             textAlign: "center",
-            border: "1px dotted green",
             borderRadius: "10px",
             paddingTop: "5px",
-            fontSize:"12px"
+            fontSize:"16px"
           }}
         >
           <strong>
