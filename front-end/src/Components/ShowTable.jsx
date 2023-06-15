@@ -103,7 +103,7 @@ export const ShowTable = ({ API }) => {
             textAlign: "center",
             borderRadius: "10px",
             paddingTop: "5px",
-            fontSize:"16px"
+            fontSize:"14px"
           }}
         >
           <strong>
